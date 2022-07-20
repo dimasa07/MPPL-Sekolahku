@@ -1,12 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="Learnify dibuat ditujukan agar para siswa dan guru dapat terus belajar dan mengajar dimana saja dan kapan saja." name="Description" />
-    <meta content="Learnify, E-learning, Open Source, Syauqi Zaidan Khairan Khalaf, github, programmer indonesia" name="keywords" />
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
     <title>Sekolahku | E-Learning</title>
     <!-- Bootstrap CSS -->
@@ -24,20 +22,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Scripts -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.4/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('/js/popper.js') }}"></script>
     <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript">
-        $(document).ready(() => {
-            //$("#nav< //$this->uri->segment(2); ").addClass('active')
-        })
-    </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.1/lottie.min.js"></script>
+    <script src="{{ asset('/js/lottie.js') }}"></script>
 </head>
 
-<body>
+<body style="background-color: #edf2f7">
 
     <!--================Header Menu Area =================-->
     <header class="header_area">
@@ -55,7 +48,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('beranda') }}">Beranda</a></li>  
+                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('beranda') }}">Beranda</a></li>
                             </li>
                             <li class="nav-item submenu dropdown" id="navpelajaran">
                                 <a href="{{ route('pelajaran') }}" class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Pelajaran</a>
@@ -82,104 +75,72 @@
     </header>
     <!--================ END Header Menu Area =================-->
 
-    <!--================Courses Area =================-->
-    <section class="courses_area p_40">
-        <div class="container">
-            <div class="main_title">
-                <h2 data-aos="fade-up" data-aos-duration="1600">Pelajaran Yang Tersedia di Learnify</h2>
-                <p data-aos="fade-up" data-aos-duration="1800">Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free.</p>
-            </div>
-            <div class="row courses_inner">
-                <div class="col-lg-9">
-                    <div class="grid_inner">
-                        <div class="grid_item wd55">
-                            <div class="courses_item" data-aos="fade-right" data-aos-duration="1800">
-                                <img src="{{ asset('/img/courses/course-1.jpg') }}" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="#">Gratis</a>
-                                    <a href="javaScript:void(0);">
-                                        <h4>Kelas Matematika Gratis</h4>
-                                    </a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i>54</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i>Guru Matematika SMKN 1 Ciamis</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid_item wd44">
-                            <div class="courses_item" data-aos="fade-down" data-aos-duration="1800">
-                                <img src="{{ asset('/img/courses/course-2.jpg') }}" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="#">Gratis</a>
-                                    <a href="javaScript:void(0);">
-                                        <h4>Kelas IPA Gratis</h4>
-                                    </a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 34</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> Guru IPA SMKN 1 Ciamis</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid_item wd44">
-                            <div class="courses_item" data-aos="fade-right" data-aos-duration="1800">
-                                <img src="{{ asset('/img/courses/course-4.jpg') }}" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="#">Gratis</a>
-                                    <a href="javaScript:void(0);">
-                                        <h4>Kelas Bahasa Inggris Gratis</h4>
-                                    </a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 63</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> Guru English SMKN 1 Ciamis</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid_item wd55">
-                            <div class="courses_item" data-aos="fade-up" data-aos-duration="1800">
-                                <img src="{{ asset('/img/courses/course-5.jpg') }}" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="#">Gratis</a>
-                                    <a href="javaScript:void(0);">
-                                        <h4>Kelas Bahasa Indonesia Gratis</h4>
-                                    </a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 24</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> Guru Indonesia SMKN 1 Ciamis</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+    <!-- Registration Form Area -->
+    <section>
+        <div class="container mt-5 mb-5" id="registration">
+            <div class="row bg-registration p-3">
+                <div class="col-md-12 text-center">
+                    <p class="registration-title font-weight-bold display-4 mt-4" style="font-size: 50px;">
+                        Pendaftaran Learnify</p>
+                    <p style="line-height:-30px;margin-top:-20px;">Silahkan isi data data yang diperlukan dibawah ini </p>
+                    <hr>
                 </div>
-                <div class="col-lg-3">
-                    <div class="course_item" data-aos="fade-left" data-aos-duration="1800">
-                        <img src="{{ asset('/img/courses/course-3.jpg') }}" alt="">
-                        <div class="hover_text">
-                            <a class="cat" href="#">Gratis</a>
-                            <a href="javaScript:void(0);">
-                                <h4>Kelas Pendidikan Agama Islam Gratis</h4>
-                            </a>
-                            <ul class="list">
-                                <li><a href="#"><i class="lnr lnr-users"></i> 35</a></li>
-                                <li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
-                                <li><a href="#"><i class="lnr lnr-user"></i> Guru Agama SMKN 1 Ciamis</a></li>
-                            </ul>
+                <div class="col-md-6 mx-auto text-center">
+                    <div class="bodymovin" data-icon="{{ asset('/json/registration-animation.json') }}"></div>
+                </div>
+                <div class="col-md-6 mx-auto my-auto mt--5">
+                    <form action="{{ route('siswa.daftar.submit') }}" method="post">
+                        <div class="form-group">
+                            <label for="nama_lengkap" class="label-font-register">Nama lengkap</label>
+                            <input type="text" autocomplete="off" class="form-control effect-9" name="nama" id="nama_lengkap">
+
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="email" class="label-font-register">Email</label>
+                            <input type="text" class="form-control" name="email" id="email">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="password" class="label-font-register">Password</label>
+                                <input type="password" class="form-control" name="password" id="password">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="retype_password" class="label-font-register">Retype password</label>
+                                <input type="password" class="form-control" name="retype_password" id="retype_password">
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox" type="checkbox" id="defaultCheck1" onchange="document.getElementById('btnsubmit').disabled = !this.checked;">
+                            <label class=" form-check-label" for="defaultCheck1">
+                                Saya setuju dan ingin melanjutkan
+                            </label>
+                        </div>
+                        <p class="terms">Dengan mendaftar anda menyetujui <i>privasi dan persyaratan ketentuan
+                                hukum kami </i>
+                            baca selengkapnya <a href="#"> disini</a></p>
+                        <button type="submit" name="submit" id="btnsubmit" disabled class="btn btn-block btn-modal btn-submit">Daftar
+                            Sekarang!</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-    <!--================End Courses Area =================-->
+    <!-- End Registration Form Area -->
+
+    <!-- Start Checkbox Scripts -->
+    <script>
+        $('.tab1_btn').prop('disabled', !$('.tab1_chk:checked')
+            .length);
+        $('input[type=checkbox]').click(function() {
+            if ($('.tab1_chk:checkbox:checked').length > 0) {
+                $('.btn-submit').prop('disabled', false);
+            } else {
+                $('.btn-submit').prop('disabled', true);
+            }
+        });
+    </script>
+    <!-- End Checkbox Scripts -->
 
     <!--================ Start footer Area  =================-->
     <footer class="footer-area p_20">

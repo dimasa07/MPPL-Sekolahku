@@ -77,9 +77,6 @@
                                     masuk ke
                                     halaman admin.</h5>
                             </div>
-                            Made with <span class="text-danger"> &#10084;</span> by <a class="text-light bb"
-                                target="_blank" href="https://syauqizaidan.github.io/">Syaauqi Zaaidan</a> - Image by <a
-                                class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
                         </div>
                     </div>
                 </div>

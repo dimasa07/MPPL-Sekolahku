@@ -94,19 +94,7 @@
 
                             </ul>
                         </li>
-                        <li class="menu-header">About Developer</li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-address-card"></i>
-                                <span>Developer</span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="{{ route('admin.tentang_pengembang') }}">Tentang
-                                        Pembuat</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ route('admin.tentang_website') }}">Tentang
-                                        Website</a>
-                                </li>
-                            </ul>
-                        </li>
+                         
                 </aside>
             </div>
             <!-- End Sidebar -->
@@ -197,7 +185,7 @@
         <!-- Start Footer -->
         <footer class="main-footer">
             <div class="text-center">
-                Copyright &copy; 2020 <div class="bullet"></div><a href="https://github.com/syauqi">Syauqi Zaidan Khairan Khalaf</a>
+                Copyright &copy; 2022 <div class="bullet"></div> Admin
             </div>
         </footer>
         <!-- End Footer -->

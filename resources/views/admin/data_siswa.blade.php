@@ -96,19 +96,7 @@
 
                             </ul>
                         </li>
-                        <li class="menu-header">About Developer</li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-address-card"></i>
-                                <span>Developer</span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="{{ route('admin.tentang_pengembang') }}">Tentang
-                                        Pembuat</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ route('admin.tentang_website') }}">Tentang
-                                        Website</a>
-                                </li>
-                            </ul>
-                        </li>
+                         
                 </aside>
             </div>
             <!-- End Sidebar -->
@@ -121,7 +109,7 @@
                             <h2 class="card-title" style="color: black;">Management Data Siswa Learnify</h2>
                             <hr>
                             <p class="card-text"> After I ran into Helen at a restaurant, I realized she was just office pretty drop-dead date put in in a deck for our standup today. Who's responsible for the ask for this request? who's responsible for the ask for this request? but moving the goalposts gain traction. </p>
-                            <a href="{{ route('pengguna.daftar') }}" class="btn btn-success">Tambah
+                            <a href="{{ route('siswa.daftar') }}" class="btn btn-success">Tambah
                                 Data Siswa ⭢ </a>
                         </div>
                     </div>
@@ -164,7 +152,7 @@
      <!-- Start Footer -->
      <footer class="main-footer">
         <div class="text-center">
-            Copyright &copy; 2020 <div class="bullet"></div><a href="https://github.com/syauqi">Syauqi Zaidan Khairan Khalaf</a>
+            Copyright &copy; 2022 <div class="bullet"></div> Admin
         </div>
     </footer>
     <!-- End Footer -->

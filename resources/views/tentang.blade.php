@@ -41,23 +41,6 @@
 
     <!--================Header Menu Area =================-->
     <header class="header_area">
-        <div class="top_menu row m0">
-            <div class="container">
-                <div class="float-left">
-                    <ul class="list header_social">
-                        <li><a href="https://www.facebook.com/syaaauqi"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/syaaauqi"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://dribbble.com/syaufy"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="https://www.behance.net/syaufy"><i class="fa fa-behance"></i></a></li>
-                        <li><a href="https://www.github.com/syauqi"><i class="fa fa-github"></i></a></li>
-                        <li><a href="https://www.instagram.com/syaufy"><i class="fa fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-                <div class="float-right">
-                    <a class="dn_btn" href="mailto:apps.learnify@gmail.com">{{ $email }}</a>
-                </div>
-            </div>
-        </div>
 
         <div class="main_menu">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -72,14 +55,25 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('beranda') }}">Beranda</a></li>
-                            <li class="nav-item" id="navtentang"><a class="nav-link" href="{{ route('tentang') }}">Tentang</a>
+                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('beranda') }}">Beranda</a></li>  
                             </li>
                             <li class="nav-item submenu dropdown" id="navpelajaran">
                                 <a href="{{ route('pelajaran') }}" class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Pelajaran</a>
                             </li>
+                            <li class="nav-item" id="navtentang"><a class="nav-link" href="{{ route('tentang') }}">Tentang</a>
+                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('siswa.daftar') }}">Daftar</a></li>
+                            <li class="nav-item dropdown">
+                                <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">Masuk
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="#" class="dropdown-item has-icon " data-toggle="modal" data-target="#exampleModalCenter">
+                                        <i class="fas fa-sign-out-alt"></i>Masuk sebagai Siswa
+                                    </a>
+                                    <a href="{{ route('guru.login') }}" class="dropdown-item has-icons">
+                                        <i class="fas fa-sign-out-alt"></i>Masuk sebagai Guru
+                                    </a>
+                                </div>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Masuk</a></li>
                         </ul>
                     </div>
                 </div>
@@ -88,26 +82,9 @@
     </header>
     <!--================ END Header Menu Area =================-->
 
-    <!--================Home Banner Area =================-->
-    <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
-            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background="">
-            </div>
-            <div class="container">
-                <div class="banner_content text-center">
-                    <h2 data-aos="fade-up" data-aos-duration="1600">Tentang Learnify</h2>
-                    <div data-aos="fade-up" data-aos-duration="1800" class="page_link">
-                        <a href="{{ route('beranda') }}">Beranda</a>
-                        <a href="">Tentang</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================End Home Banner Area =================-->
 
     <!--================About Area =================-->
-    <section class="about_area p_60">
+    <section class="about_area p_40">
         <div class="container">
             <div class="main_title">
                 <h2 data-aos="fade-up" data-aos-duration="1600" style="font-size: 33px !important;">Tentang Learnify - Web Edukasi Open Source</h2>
@@ -197,148 +174,23 @@
     </section>
     <!--================End About Area =================-->
 
-    <!--================Team Area =================-->
-    <section class="team_area p_20">
-        <div class="container">
-            <div class="main_title">
-                <h2 data-aos="fade-up" data-aos-duration="1800">Testimonial Para Siswa Learnify</h2>
-                <p data-aos="fade-up" data-aos-duration="2000">Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free.</p>
-            </div>
-            <section class="testimonials_area p_20">
-                <div class="container">
-                    <div class="testi_slider owl-carousel">
-                        <div class="item">
-                            <div class="testi_item">
-                                <img src="{{ asset('/img/testimonials/testi-3.png') }}" alt="">
-                                <h4>Syauqi Zaidan Khairan Khalaf</h4>
-                                <ul class="list">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                </ul>
-                                <p>Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free. Abstract chaos snare play truth ultimate good self. God overcome sexuality pious abstract good decieve revaluation aversion good. Virtues chaos overcome society holiest truth.</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testi_item">
-                                <img src="{{ asset('/img/testimonials/testi-2.png') }}" alt="">
-                                <h4>Taupik Hidayat</h4>
-                                <ul class="list">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                </ul>
-                                <p>Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free. Abstract chaos snare play truth ultimate good self. God overcome sexuality pious abstract good decieve revaluation aversion good. Virtues chaos overcome society holiest truth.</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testi_item">
-                                <img src="{{ asset('/img/testimonials/testi-1.png') }}" alt="">
-                                <h4>Diki Ramdani</h4>
-                                <ul class="list">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                </ul>
-                                <p>Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free. Abstract chaos snare play truth ultimate good self. God overcome sexuality pious abstract good decieve revaluation aversion good. Virtues chaos overcome society holiest truth.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </section>
-    <!--================End Team Area =================-->
 
-    <!--================Impress Area =================-->
-    <section class="impress_area p_120">
-        <div class="container">
-            <div class="impress_inner text-center">
-                <h2 data-aos="fade-up" data-aos-duration="1800">LOGIN SEBAGAI GURU DAN UPLOAD MATERI & VIDEO SEKARANG</h2>
-                <p data-aos="fade-up" data-aos-duration="2000">Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free. Abstract chaos snare play truth ultimate good self. God overcome sexuality pious abstract good decieve revaluation aversion good. Virtues chaos overcome society holiest truth.
-                </p>
-                <a data-aos="fade-up" data-aos-duration="2200" class="main_btn" href="{{ route('guru') }}">Login Sebagai Guru <span class="lnr lnr-arrow-right text-black"></span></a>
-            </div>
-        </div>
-    </section>
-    <!--================End Impress Area =================-->
 
     <!--================ Start footer Area  =================-->
-    <footer class="footer-area p_60">
+    <footer class="footer-area p_20">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-2  col-md-6 col-sm-6">
-                    <div class="single-footer-widget tp_widgets">
-                        <h6 class="footer_title">Tentang Kami</h6>
-                        <ul class="list">
-                            <li><a href="{{ route('tentang') }}">Tentang Learnify</a></li>
-                            <li><a href="{{ route('pelajaran.materi') }}">Materi Learnify</a></li>
-                            <li><a href="http://smkn1ciamis.id/">Website Resmi Sekolah</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2  col-md-6 col-sm-6">
-                    <div class="single-footer-widget tp_widgets">
-                        <h6 class="footer_title">Masuk - Sign in</h6>
-                        <ul class="list">
-                            <li><a href="#" data-toggle="modal" data-target="#exampleModalCenter">Untuk Siswa</a></li>
-                            <li><a href="{{ route('guru') }}">Untuk Guru</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2  col-md-6 col-sm-6">
-                    <div class="single-footer-widget tp_widgets">
-                        <h6 class="footer_title">Pelajaran - Materi</h6>
-                        <ul class="list">
-                            <li><a href="javaScript:void(0);">IPA</a></li>
-                            <li><a href="javaScript:void(0);">Matematika</a></li>
-                            <li><a href="javaScript:void(0);">Bahasa Inggris</a></li>
-                            <li><a href="javaScript:void(0);">Bahasa Indonesia</a></li>
-                            <li><a href="javaScript:void(0);">Pendidikan Agama Islam</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2  col-md-6 col-sm-6">
-                    <div class="single-footer-widget tp_widgets">
-                        <h6 class="footer_title">Tentang Developer</h6>
-                        <ul class="list">
-                            <li>Perfectionist Web Developer with one years of experience as a Web Developer and Web Designer. Skilled at Designing and developing Websites. Excellent written and oral communication skills; capable of explaining complex software issues in easy-to-understand terms.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <h4 class="footer_title">Tentang Learnify</h4>
-                    <p>
-                        Web Edukasi Open Source yang dibuat oleh Syauqi Zaidan Khairan Khalaf. Learnify adalah Web edukasi yang dilengkapi video, materi dan sistem ujian yang tersedia secara gratis. Learnify dibuat ditujukan agar para siswa dan guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
-                    </p>
-                </div>
-            </div>
-            <div class="row footer-bottom d-flex justify-content-between align-items-center">
+            <div class="">
                 <p class="col-lg-8 col-md-8 footer-text m-0">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
                     </script> All rights reserved | This template is made with <span class="text-danger"> &#10084;</span> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a> <br> Learnify is made with <span class="text-danger"> &#10084;</span> by <a href="https://github.com/syauqi">Syauqi Zaidan Khairan Khalaf </a> with MIT License
+                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
-                <div class="col-lg-4 col-md-4 footer-social">
-                    <a href="https://www.facebook.com/syaaauqi"><i class="fa fa-facebook"></i></a>
-                    <a href="https://twitter.com/syaaauqi"><i class="fa fa-twitter"></i></a>
-                    <a href="https://dribbble.com/syaufy"><i class="fa fa-dribbble"></i></a>
-                    <a href="https://www.behance.net/syaufy"><i class="fa fa-behance"></i></a>
-                    <a href="https://www.github.com/syauqi"><i class="fa fa-github"></i></a>
-                    <a href="https://www.instagram.com/syaufy"><i class="fa fa-instagram"></i></a>
-                </div>
             </div>
         </div>
+
     </footer>
     <!--================ End footer Area  =================-->
 
@@ -387,7 +239,7 @@
                                         menyetujui
                                         <i>privasi dan persyaratan ketentuan
                                             hukum kami </i> .
-                                        belum punya akun? daftar <a href="{{ route('pengguna.daftar') }}">
+                                        belum punya akun? daftar <a href="{{ route('siswa.daftar') }}">
                                             disini.</a>
                                     </p>
                                     <button class="btn btn-block font-weight-bold" style="background-color: #4dbf1c;color:white;font-size:18px;">Login

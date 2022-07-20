@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view("/beranda", ["email" => "example@gmail.com"]);
+    return view("/beranda", ["email" => "contoh@gmail.com"]);
 })->name("beranda");
 
 Route::get('/tentang', function () {
-    return view("/tentang", ["email" => "example@gmail.com"]);
+    return view("/tentang", ["email" => "contoh@gmail.com"]);
 })->name("tentang");
 
 Route::get('/pelajaran/materi', function () {
@@ -27,7 +27,7 @@ Route::get('/pelajaran/materi', function () {
 })->name("pelajaran.materi");
 
 Route::get('/pelajaran', function () {
-    return view("/pelajaran", ["email" => "example@gmail.com"]);
+    return view("/pelajaran", ["email" => "contoh@gmail.com"]);
 })->name("pelajaran");
 
 // GURU
@@ -53,24 +53,24 @@ Route::get('login/validasilogin', function () {
 })->name("login.validasilogin");
 
 
-// PENGGUNA
-Route::get('/pengguna', function () {
-    return view("/pengguna.index");
-})->name("pengguna");
-Route::get('/pengguna/daftar', function () {
-    return view("/pengguna.daftar",["email" => "example@gmail.com"]);
-})->name("pengguna.daftar");
-Route::get('/pengguna/daftar/submit', function () {
-})->name("pengguna.daftar.submit");
-Route::get('/pengguna/kelas10', function () {
-})->name("pengguna.kelas10");
-Route::get('/pengguna/kelas11', function () {
-})->name("pengguna.kelas11");
-Route::get('/pengguna/kelas12', function () {
-})->name("pengguna.kelas12");
-Route::get('/pengguna/logout', function () {
-    return view("/pengguna.index");
-})->name("pengguna.logout");
+// SISWA
+Route::get('/siswa', function () {
+    return view("/siswa.index");
+})->name("siswa");
+Route::get('/siswa/daftar', function () {
+    return view("/siswa.daftar",["email" => "contoh@gmail.com"]);
+})->name("siswa.daftar");
+Route::get('/siswa/daftar/submit', function () {
+})->name("siswa.daftar.submit");
+Route::get('/siswa/kelas10', function () {
+})->name("siswa.kelas10");
+Route::get('/siswa/kelas11', function () {
+})->name("siswa.kelas11");
+Route::get('/siswa/kelas12', function () {
+})->name("siswa.kelas12");
+Route::get('/siswa/logout', function () {
+    return view("/siswa.index");
+})->name("siswa.logout");
 
 
 // ADMIN
@@ -101,6 +101,7 @@ Route::get('/admin/update-guru', function () {
     return view("/admin.update_guru");
 })->name("admin.update_guru");
 Route::get('/admin/tambah-guru', function () {
+    return redirect("/guru/daftar");
 })->name("admin.tambah_guru");
 Route::get('/admin/data-materi', function () {
     return view("/admin.data_materi");
@@ -115,5 +116,5 @@ Route::get('/admin/tentang-pengembang', function () {
 })->name("admin.tentang_pengembang");
 Route::get('/admin/tentang-website', function () {
 })->name("admin.tentang_website");
-Route::get('/admin/pengguna_edit', function () {
-})->name("admin.pengguna_edit");
+Route::get('/admin/siswa_edit', function () {
+})->name("admin.siswa_edit");

@@ -39,23 +39,6 @@
 
     <!--================Header Menu Area =================-->
     <header class="header_area">
-        <div class="top_menu row m0">
-            <div class="container">
-                <div class="float-left">
-                    <ul class="list header_social">
-                        <li><a href="https://www.facebook.com/syaaauqi"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/syaaauqi"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://dribbble.com/syaufy"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="https://www.behance.net/syaufy"><i class="fa fa-behance"></i></a></li>
-                        <li><a href="https://www.github.com/syauqi"><i class="fa fa-github"></i></a></li>
-                        <li><a href="https://www.instagram.com/syaufy"><i class="fa fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-                <div class="float-right">
-                    <a class="dn_btn" href="mailto:apps.learnify@gmail.com">{{ $email }}</a>
-                </div>
-            </div>
-        </div>
 
         <div class="main_menu">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -70,14 +53,25 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('beranda') }}">Beranda</a></li>
-                            <li class="nav-item" id="navtentang"><a class="nav-link" href="{{ route('tentang') }}">Tentang</a>
+                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('beranda') }}">Beranda</a></li>  
                             </li>
                             <li class="nav-item submenu dropdown" id="navpelajaran">
                                 <a href="{{ route('pelajaran') }}" class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Pelajaran</a>
                             </li>
+                            <li class="nav-item" id="navtentang"><a class="nav-link" href="{{ route('tentang') }}">Tentang</a>
+                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('siswa.daftar') }}">Daftar</a></li>
+                            <li class="nav-item dropdown">
+                                <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">Masuk
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="#" class="dropdown-item has-icon " data-toggle="modal" data-target="#exampleModalCenter">
+                                        <i class="fas fa-sign-out-alt"></i>Masuk sebagai Siswa
+                                    </a>
+                                    <a href="{{ route('guru.login') }}" class="dropdown-item has-icons">
+                                        <i class="fas fa-sign-out-alt"></i>Masuk sebagai Guru
+                                    </a>
+                                </div>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Masuk</a></li>
                         </ul>
                     </div>
                 </div>
@@ -96,90 +90,13 @@
                     <h3 data-aos="fade-up" data-aos-duration="1600">Belajar Dimana Saja & Kapan Saja <br /> Mudah Dengan Learnify</h3>
                     <p data-aos="fade-up" data-aos-duration="1900">Dengan Learnify kemudahan kegiatan belajar mengajar dapat terpenuhi. Para guru dan siswa dapat
                         belajar meski banyak halangan atau rintangan. Nikmati Pembelajaran terstruktur dan efektif menggunakan Learnify serta kemudahan belajar dengan menggunakan aplikasi kami. </p>
-                    <a data-aos="fade-up" data-aos-duration="2000" class="main_btn" href="{{ route('pengguna.daftar') }}">Bergabung Sekarang <span class="lnr lnr-arrow-right"></span></a>
+                    <a data-aos="fade-up" data-aos-duration="2000" class="main_btn" href="{{ route('siswa.daftar') }}">Bergabung Sekarang <span class="lnr lnr-arrow-right"></span></a>
                 </div>
             </div>
         </div>
     </section>
     <!-- ================End Home Banner Area ================= -->
 
-    <!--================Finance Area =================-->
-    <section class="finance_area">
-        <div class="container">
-            <div class="finance_inner row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="finance_item">
-                        <div data-aos="fade-right" data-aos-duration="1600" class="media">
-                            <div class="d-flex">
-                                <i class="lnr lnr-users"></i>
-                            </div>
-                            <div class="media-body">
-                                <h5>Admin, User & Guru Data Management</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="finance_item">
-                        <div data-aos="fade-right" data-aos-duration="1800" class="media">
-                            <div class="d-flex">
-                                <i class="lnr lnr-file-empty"></i>
-                            </div>
-                            <div class="media-body">
-                                <h5>Dokumentasi lengkap & Jelas</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-right" data-aos-duration="2000" class="col-lg-3 col-sm-6">
-                    <div class="finance_item">
-                        <div class="media">
-                            <div class="d-flex">
-                                <i class="lnr lnr-camera-video"></i>
-                            </div>
-                            <div class="media-body">
-                                <h5>E-Learning Berbasis Video dan Disqus</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-right" data-aos-duration="2200" class="col-lg-3 col-sm-6">
-                    <div class="finance_item">
-                        <div class="media">
-                            <div class="d-flex">
-                                <i class="lnr lnr-tag"></i>
-                            </div>
-                            <div class="media-body">
-                                <h5>Gratis dengan Lisensi MIT Open-Source</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================End Finance Area =================-->
-
-    <!--================ Illustrations Area =================-->
-    <section class="learnify-for-indonesia p_20">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <img data-aos="fade-up" data-aos-duration="1800" src="{{ asset('/img/illustrations/index-study.svg') }}" alt="" srcset="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-7 mx-auto">
-                    <div class="main_title">
-                        <h2 data-aos="fade-up" data-aos-duration="2000">Learnify Dibuat Untuk Meningkatkan Kualitas Pembelajaran Di Indonesia</h2>
-                        <p data-aos="fade-up" data-aos-duration="2200">Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free.</p>
-                        <a href="https://github.com/syauqi/learnify"><button data-aos="fade-up" data-aos-duration="2400" class="bubbly-button">Download Learnify <span class="lnr lnr-arrow-right"></span></button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================End Illustrations Area =================-->
 
     <!--================Courses Area =================-->
     <section class="courses_area p_40">
@@ -280,65 +197,6 @@
     </section>
     <!--================End Courses Area =================-->
 
-    <!--================Team Area =================-->
-    <section class="team_area p_20">
-        <div class="container">
-            <div class="main_title">
-                <h2 data-aos="fade-up" data-aos-duration="1800">Testimonial Para Siswa Learnify</h2>
-                <p data-aos="fade-up" data-aos-duration="2000">Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free.</p>
-            </div>
-            <section class="testimonials_area p_20">
-                <div class="container">
-                    <div class="testi_slider owl-carousel">
-                        <div class="item">
-                            <div class="testi_item">
-                                <img src="{{ asset('/img/testimonials/testi-3.png') }}" alt="">
-                                <h4>Syauqi Zaidan Khairan Khalaf</h4>
-                                <ul class="list">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                </ul>
-                                <p>Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free. Abstract chaos snare play truth ultimate good self. God overcome sexuality pious abstract good decieve revaluation aversion good. Virtues chaos overcome society holiest truth.</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testi_item">
-                                <img src="{{ asset('/img/testimonials/testi-2.png') }}" alt="">
-                                <h4>Taupik Hidayat</h4>
-                                <ul class="list">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                </ul>
-                                <p>Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free. Abstract chaos snare play truth ultimate good self. God overcome sexuality pious abstract good decieve revaluation aversion good. Virtues chaos overcome society holiest truth.</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testi_item">
-                                <img src="{{ asset('/img/testimonials/testi-1.png') }}" alt="">
-                                <h4>Diki Ramdani</h4>
-                                <ul class="list">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                </ul>
-                                <p>Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free. Abstract chaos snare play truth ultimate good self. God overcome sexuality pious abstract good decieve revaluation aversion good. Virtues chaos overcome society holiest truth.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </section>
-    <!--================End Team Area =================-->
 
     <!--================Impress Area =================-->
     <section class="impress_area p_120">
@@ -355,74 +213,20 @@
 
 
     <!--================ Start footer Area  =================-->
-    <footer class="footer-area p_60">
+    <footer class="footer-area p_20">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-2  col-md-6 col-sm-6">
-                    <div class="single-footer-widget tp_widgets">
-                        <h6 class="footer_title">Tentang Kami</h6>
-                        <ul class="list">
-                            <li><a href="{{ route('tentang') }}">Tentang Learnify</a></li>
-                            <li><a href="{{ route('pelajaran.materi') }}">Materi Learnify</a></li>
-                            <li><a href="http://smkn1ciamis.id/">Website Resmi Sekolah</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2  col-md-6 col-sm-6">
-                    <div class="single-footer-widget tp_widgets">
-                        <h6 class="footer_title">Masuk - Sign in</h6>
-                        <ul class="list">
-                            <li><a href="#" data-toggle="modal" data-target="#exampleModalCenter">Untuk Siswa</a></li>
-                            <li><a href="{{ route('guru') }}">Untuk Guru</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2  col-md-6 col-sm-6">
-                    <div class="single-footer-widget tp_widgets">
-                        <h6 class="footer_title">Pelajaran - Materi</h6>
-                        <ul class="list">
-                            <li><a href="javaScript:void(0);">IPA</a></li>
-                            <li><a href="javaScript:void(0);">Matematika</a></li>
-                            <li><a href="javaScript:void(0);">Bahasa Inggris</a></li>
-                            <li><a href="javaScript:void(0);">Bahasa Indonesia</a></li>
-                            <li><a href="javaScript:void(0);">Pendidikan Agama Islam</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2  col-md-6 col-sm-6">
-                    <div class="single-footer-widget tp_widgets">
-                        <h6 class="footer_title">Tentang Developer</h6>
-                        <ul class="list">
-                            <li>Perfectionist Web Developer with one years of experience as a Web Developer and Web Designer. Skilled at Designing and developing Websites. Excellent written and oral communication skills; capable of explaining complex software issues in easy-to-understand terms.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <h4 class="footer_title">Tentang Learnify</h4>
-                    <p>
-                        Web Edukasi Open Source yang dibuat oleh Syauqi Zaidan Khairan Khalaf. Learnify adalah Web edukasi yang dilengkapi video, materi dan sistem ujian yang tersedia secara gratis. Learnify dibuat ditujukan agar para siswa dan guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
-                    </p>
-                </div>
-            </div>
-            <div class="row footer-bottom d-flex justify-content-between align-items-center">
+            <div class="">
                 <p class="col-lg-8 col-md-8 footer-text m-0">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
                     </script> All rights reserved | This template is made with <span class="text-danger"> &#10084;</span> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a> <br> Learnify is made with <span class="text-danger"> &#10084;</span> by <a href="https://github.com/syauqi">Syauqi Zaidan Khairan Khalaf </a> with MIT License
+                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
-                <div class="col-lg-4 col-md-4 footer-social">
-                    <a href="https://www.facebook.com/syaaauqi"><i class="fa fa-facebook"></i></a>
-                    <a href="https://twitter.com/syaaauqi"><i class="fa fa-twitter"></i></a>
-                    <a href="https://dribbble.com/syaufy"><i class="fa fa-dribbble"></i></a>
-                    <a href="https://www.behance.net/syaufy"><i class="fa fa-behance"></i></a>
-                    <a href="https://www.github.com/syauqi"><i class="fa fa-github"></i></a>
-                    <a href="https://www.instagram.com/syaufy"><i class="fa fa-instagram"></i></a>
-                </div>
             </div>
         </div>
+
     </footer>
     <!--================ End footer Area  =================-->
 
@@ -471,7 +275,7 @@
                                         menyetujui
                                         <i>privasi dan persyaratan ketentuan
                                             hukum kami </i> .
-                                        belum punya akun? daftar <a href="{{ route('pengguna.daftar') }}">
+                                        belum punya akun? daftar <a href="{{ route('siswa.daftar') }}">
                                             disini.</a>
                                     </p>
                                     <button class="btn btn-block font-weight-bold" style="background-color: #4dbf1c;color:white;font-size:18px;">Login
@@ -488,114 +292,132 @@
 
 
     <!-- Sweetaler Flashdata -->
-    <?php //if ($this->session->flashdata('success-reg')) : ?>
-        <script>
-            // Swal.fire({
-            //     icon: 'success',
-            //     title: 'Kamu berhasil daftar!',
-            //     text: 'Sekarang kamu boleh login!',
-            //     showConfirmButton: false,
-            //     timer: 2500
-            // })
-        </script>
-    <?php //endif; ?>
+    <?php //if ($this->session->flashdata('success-reg')) : 
+    ?>
+    <script>
+        // Swal.fire({
+        //     icon: 'success',
+        //     title: 'Kamu berhasil daftar!',
+        //     text: 'Sekarang kamu boleh login!',
+        //     showConfirmButton: false,
+        //     timer: 2500
+        // })
+    </script>
+    <?php //endif; 
+    ?>
 
 
-    <?php //if ($this->session->flashdata('login-success')) : ?>
-        <script>
-            // Swal.fire({
-            //     icon: 'success',
-            //     title: 'Kamu berhasil daftar!',
-            //     text: 'Sekarang login yuk!',
-            //     showConfirmButton: false,
-            //     timer: 2500
-            // })
-        </script>
-    <?php //endif; ?>
+    <?php //if ($this->session->flashdata('login-success')) : 
+    ?>
+    <script>
+        // Swal.fire({
+        //     icon: 'success',
+        //     title: 'Kamu berhasil daftar!',
+        //     text: 'Sekarang login yuk!',
+        //     showConfirmButton: false,
+        //     timer: 2500
+        // })
+    </script>
+    <?php //endif; 
+    ?>
 
 
-    <?php //if ($this->session->flashdata('success-verify')) : ?>
-        <script>
-            // Swal.fire({
-            //     icon: 'success',
-            //     title: 'Email Telah Diverifikasi!',
-            //     text: 'Sekarang login yuk!',
-            //     showConfirmButton: false,
-            //     timer: 2500
-            // })
-        </script>
-    <?php //endif; ?>
+    <?php //if ($this->session->flashdata('success-verify')) : 
+    ?>
+    <script>
+        // Swal.fire({
+        //     icon: 'success',
+        //     title: 'Email Telah Diverifikasi!',
+        //     text: 'Sekarang login yuk!',
+        //     showConfirmButton: false,
+        //     timer: 2500
+        // })
+    </script>
+    <?php //endif; 
+    ?>
 
 
-    <?php //if ($this->session->flashdata('success-logout')) : ?>
-        <script>
-            // Swal.fire({
-            //     icon: 'success',
-            //     title: 'Kamu berhasil logout!',
-            //     text: 'Selamat tinggal, Sampai jumpa lagi!',
-            //     showConfirmButton: false,
-            //     timer: 2500
-            // })
-        </script>
-    <?php //endif; ?>
+    <?php //if ($this->session->flashdata('success-logout')) : 
+    ?>
+    <script>
+        // Swal.fire({
+        //     icon: 'success',
+        //     title: 'Kamu berhasil logout!',
+        //     text: 'Selamat tinggal, Sampai jumpa lagi!',
+        //     showConfirmButton: false,
+        //     timer: 2500
+        // })
+    </script>
+    <?php //endif; 
+    ?>
 
 
-    <?php //if ($this->session->flashdata('fail-login')) : ?>
-        <script>
-            // Swal.fire({
-            //     icon: 'error',
-            //     title: 'Gagal login!',
-            //     text: 'Silahkan Periksa Kembali Email dan Password Kamu!',
-            //     showConfirmButton: false,
-            //     timer: 2500
-            // });
-        </script>
-    <?php //endif; ?>
+    <?php //if ($this->session->flashdata('fail-login')) : 
+    ?>
+    <script>
+        // Swal.fire({
+        //     icon: 'error',
+        //     title: 'Gagal login!',
+        //     text: 'Silahkan Periksa Kembali Email dan Password Kamu!',
+        //     showConfirmButton: false,
+        //     timer: 2500
+        // });
+    </script>
+    <?php //endif; 
+    ?>
 
 
-    <?php //if ($this->session->flashdata('fail-email')) : ?>
-        <script>
-            // Swal.fire({
-            //     icon: 'error',
-            //     title: 'Email Belum Diverifikasi!',
-            //     text: 'Silahkan Cek Email Kamu Dahulu!',
-            //     showConfirmButton: false,
-            //     timer: 2500
-            // })
-        </script>
-    <?php //endif; ?>
+    <?php //if ($this->session->flashdata('fail-email')) : 
+    ?>
+    <script>
+        // Swal.fire({
+        //     icon: 'error',
+        //     title: 'Email Belum Diverifikasi!',
+        //     text: 'Silahkan Cek Email Kamu Dahulu!',
+        //     showConfirmButton: false,
+        //     timer: 2500
+        // })
+    </script>
+    <?php //endif; 
+    ?>
 
 
-    <?php //if ($this->session->flashdata('fail-pass')) : ?>
-        <script>
-            // Swal.fire({
-            //     icon: 'error',
-            //     title: 'Password Salah!',
-            //     text: 'Silahkan Periksa Kembali Password Kamu!',
-            //     showConfirmButton: false,
-            //     timer: 2500
-            // });
-        </script>
-    <?php //endif; ?>
+    <?php //if ($this->session->flashdata('fail-pass')) : 
+    ?>
+    <script>
+        // Swal.fire({
+        //     icon: 'error',
+        //     title: 'Password Salah!',
+        //     text: 'Silahkan Periksa Kembali Password Kamu!',
+        //     showConfirmButton: false,
+        //     timer: 2500
+        // });
+    </script>
+    <?php //endif; 
+    ?>
 
 
-    <?php //if ($this->session->flashdata('not-login')) : ?>
-        <script>
-            // Swal.fire({
-            //     icon: 'error',
-            //     title: 'Harap Login Terlebih Dahulu !',
-            //     text: 'Silahkan Login Dahulu !',
-            //     showConfirmButton: false,
-            //     timer: 2500
-            // });
-        </script>
-    <?php //endif; ?>
+    <?php //if ($this->session->flashdata('not-login')) : 
+    ?>
+    <script>
+        // Swal.fire({
+        //     icon: 'error',
+        //     title: 'Harap Login Terlebih Dahulu !',
+        //     text: 'Silahkan Login Dahulu !',
+        //     showConfirmButton: false,
+        //     timer: 2500
+        // });
+    </script>
+    <?php //endif; 
+    ?>
 
-    <?php //if ($this->session->flashdata('false-login')) : ?>
-        <script>
-           // $("#exampleModalCenter").modal("show")
-        </script>
-    <?php //endif; ?>
+    <?php //if ($this->session->flashdata('false-login')) : 
+    ?>
+    <script>
+        // $("#exampleModalCenter").modal("show")
+    </script>
+    <?php //endif; 
+    ?>
 
     <script src="{{ asset('/js/stellar.js') }}"></script>
     <script src="{{ asset('/vendors/lightbox/simpleLightbox.min.js') }}"></script>
