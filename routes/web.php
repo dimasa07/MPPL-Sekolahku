@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,108 +17,56 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// BERANDA
+Route::controller(BerandaController::class)->group(function () {
+    Route::get('/', "beranda")->name("beranda");
+    Route::get('/tentang', "tentang")->name("tentang");
+    Route::get('/pelajaran', "pelajaran")->name("pelajaran");
+});
 
-Route::get('/', function () {
-    return view("/beranda", ["email" => "contoh@gmail.com"]);
-})->name("beranda");
-
-Route::get('/tentang', function () {
-    return view("/tentang", ["email" => "contoh@gmail.com"]);
-})->name("tentang");
-
-Route::get('/pelajaran/materi', function () {
-    return view("/");
-})->name("pelajaran.materi");
-
-Route::get('/pelajaran', function () {
-    return view("/pelajaran", ["email" => "contoh@gmail.com"]);
-})->name("pelajaran");
 
 // GURU
-Route::get('/guru/login', function () {
-    return view("/guru.login");
-})->name("guru.login");
-
-Route::get('/guru', function () {
-    return view("/guru.index");
-})->name("guru");
-
-Route::get('/guru/daftar', function () {
-    return view("/guru.daftar");
-})->name("guru.daftar");
-Route::get('/guru/tambah-materi', function () {
-    return view("/guru.tambah_materi");
-})->name("guru.tambah_materi");
-Route::get('/guru/logout', function () {
-})->name("guru.logout");
-
-Route::get('login/validasilogin', function () {
-    return view("/");
-})->name("login.validasilogin");
+Route::prefix("/guru")->controller(GuruController::class)->group(function () {
+    Route::get('/', "index")->name("guru");
+    Route::get('/login', "login")->name("guru.login");
+    Route::get('/daftar', "daftar")->name("guru.daftar");
+    Route::get('/tambah-materi', "tambahMateri")->name("guru.tambah_materi");
+    Route::get('/logout', "logout")->name("guru.logout");
+});
 
 
 // SISWA
-Route::get('/siswa', function () {
-    return view("/siswa.index");
-})->name("siswa");
-Route::get('/siswa/daftar', function () {
-    return view("/siswa.daftar",["email" => "contoh@gmail.com"]);
-})->name("siswa.daftar");
-Route::get('/siswa/daftar/submit', function () {
-})->name("siswa.daftar.submit");
-Route::get('/siswa/kelas10', function () {
-})->name("siswa.kelas10");
-Route::get('/siswa/kelas11', function () {
-})->name("siswa.kelas11");
-Route::get('/siswa/kelas12', function () {
-})->name("siswa.kelas12");
-Route::get('/siswa/logout', function () {
-    return view("/siswa.index");
-})->name("siswa.logout");
+Route::prefix("/siswa")->controller(SiswaController::class)->group(function () {
+    Route::get('/', "index")->name("siswa");
+    Route::get('/daftar', "daftar")->name("siswa.daftar");
+    Route::get('/daftar/submit', "submitPendaftaran")->name("siswa.daftar.submit");
+    Route::get('/kelas10', "kelas10")->name("siswa.kelas10");
+    Route::get('/kelas11', "kelas11")->name("siswa.kelas11");
+    Route::get('/kelas12', "kelas12")->name("siswa.kelas12");
+    Route::get('/logout', "logout")->name("siswa.logout");
+});
 
 
 // ADMIN
-Route::get('/admin', function () {
-    return view("/admin.index");
-})->name("admin");
-Route::get('/admin/login', function () {
-    return view("/admin.login");
-})->name("admin.login");
-Route::get('/admin/logout', function () {
-})->name("admin.logout");
-Route::get('/admin/data-siswa', function () {
-    return view("/admin.data_siswa");
-})->name("admin.data_siswa");
-Route::get('/admin/detail-siswa', function () {
-    return view("/admin.detail_siswa");
-})->name("admin.detail_siswa");
-Route::get('/admin/update-siswa', function () {
-    return view("/admin.update_siswa");
-})->name("admin.update_siswa");
-Route::get('/admin/data-guru', function () {
-    return view("/admin.data_guru");
-})->name("admin.data_guru");
-Route::get('/admin/detail-guru', function () {
-    return view("/admin.detail_guru");
-})->name("admin.detail_guru");
-Route::get('/admin/update-guru', function () {
-    return view("/admin.update_guru");
-})->name("admin.update_guru");
-Route::get('/admin/tambah-guru', function () {
-    return redirect("/guru/daftar");
-})->name("admin.tambah_guru");
-Route::get('/admin/data-materi', function () {
-    return view("/admin.data_materi");
-})->name("admin.data_materi");
-Route::get('/admin/tambah-materi', function () {
-    return view("/admin.tambah_materi");
-})->name("admin.tambah_materi");
-Route::get('/admin/update-materi', function () {
-    return view("/admin.update_materi");
-})->name("admin.update_materi");
-Route::get('/admin/tentang-pengembang', function () {
-})->name("admin.tentang_pengembang");
-Route::get('/admin/tentang-website', function () {
-})->name("admin.tentang_website");
-Route::get('/admin/siswa_edit', function () {
-})->name("admin.siswa_edit");
+Route::prefix("/admin")->controller(AdminController::class)->group(function () {
+    Route::get('/', "index")->name("admin");
+    Route::get('/login', "login")->name("admin.login");
+    Route::get('/logout', "logout")->name("admin.logout");
+    Route::get('/data-siswa', "dataSiswa")->name("admin.data_siswa");
+    Route::get('/detail-siswa', "detailSiswa")->name("admin.detail_siswa");
+    Route::get('/update-siswa', "updateSiswa")->name("admin.update_siswa");
+    Route::get('/data-guru', "dataGuru")->name("admin.data_guru");
+    Route::get('/detail-guru', "detailGuru")->name("admin.detail_guru");
+    Route::get('/update-guru', "updateGuru")->name("admin.update_guru");
+    Route::get('/tambah-guru', "tambahGuru")->name("admin.tambah_guru");
+    Route::get('/data-materi', "dataMateri")->name("admin.data_materi");
+    Route::get('/tambah-materi', "tambahMateri")->name("admin.tambah_materi");
+    Route::get('/update-materi', "updateMateri")->name("admin.update_materi");
+    Route::get('/siswa_edit', "editSiswa")->name("admin.siswa_edit");
+});
+
+
+
+// AUTH
+Route::get('login/validasilogin', function () {
+})->name("login.validasilogin");

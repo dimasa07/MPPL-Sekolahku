@@ -89,7 +89,7 @@
                             <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i>
                                 <span>Materi</span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="{{ route('admin.data_materi') }}>">Data Materi</a>
+                                <li><a class="nav-link" href="{{ route('admin.data_materi') }}">Data Materi</a>
                                 </li>
                                 <li><a class="nav-link" href="{{ route('admin.tambah_materi') }}">Tambah Materi</a>
                                 </li>
