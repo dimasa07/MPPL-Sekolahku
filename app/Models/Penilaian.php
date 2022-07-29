@@ -12,4 +12,20 @@ class Penilaian extends Model
     protected $table = "penilaian";
     protected $primaryKey = "id_penilaian";
 
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, "nis");
+    }
+
+    public function mapel()
+    {
+        return $this->belongsToMany(
+            Mapel::class,
+            "detail_penilaian",
+            "id_penilaian",
+            "id_mapel"
+        );
+    }
+
 }

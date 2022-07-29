@@ -17,4 +17,19 @@ class Tugas extends Model
         "rincian",
         "tanggal"
     ];
+
+    public function mapel()
+    {
+        return $this->belongsTo(Mapel::class, "id_mapel");
+    }
+
+    public function siswa()
+    {
+        return $this->belongsToMany(
+            Siswa::class,
+            "detail_tugas",
+            "id_tugas",
+            "nis"
+        );
+    }
 }

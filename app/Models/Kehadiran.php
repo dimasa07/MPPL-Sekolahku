@@ -15,4 +15,19 @@ class Kehadiran extends Model
     protected $fillable = [
         "tanggal"
     ];
+
+    public function mapel()
+    {
+        return $this->belongsTo(Mapel::class, "id_mapel");
+    }
+
+    public function siswa()
+    {
+        return $this->belongsToMany(
+            Siswa::class,
+            "detail_kehadiran",
+            "id_kehadiran",
+            "nis"
+        );
+    }
 }

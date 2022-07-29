@@ -30,4 +30,9 @@ class Kelas extends Model
             "id_mapel"
         );
     }
+
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class, "nip");
+    }
 }

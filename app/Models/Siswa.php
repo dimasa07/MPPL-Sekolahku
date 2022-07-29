@@ -24,13 +24,29 @@ class Siswa extends Model
         return $this->belongsTo(Kelas::class, "id_kelas");
     }
 
-    /*
-    public function kelas(){
+    public function tugas()
+    {
         return $this->belongsToMany(
-            MataPelajaran::class,
-            "siswa_kelas",
-            "id_siswa",
-            "id_kelas"
+            Tugas::class,
+            "detail_tugas",
+            "nis",
+            "id_tugas"
         );
-    }*/
+    }
+
+    public function penilaian()
+    {
+        return $this->hasMany(Penilaian::class, "nis");
+    }
+
+    public function kehadiran()
+    {
+        return $this->belongsToMany(
+            Kehadiran::class,
+            "detail_kehadiran",
+            "nis",
+            "id_kehadiran"
+        );
+    }
+
 }

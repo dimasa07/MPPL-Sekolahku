@@ -26,4 +26,24 @@ class Mapel extends Model
         );
     }
 
+    public function tugas()
+    {
+        return $this->hasMany(Tugas::class, "id_mapel");
+    }
+
+    public function penilaian()
+    {
+        return $this->belongsToMany(
+            Penilaian::class,
+            "detail_penilaian",
+            "id_mapel",
+            "id_penilaian"
+        );
+    }
+
+    public function kehadiran()
+    {
+        return $this->hasMany(Kehadiran::class,"id_mapel");
+    }
+
 }

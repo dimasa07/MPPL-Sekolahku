@@ -19,13 +19,8 @@ class Guru extends Model
         "password"
     ];
 
-    /*
-    public function mapel(){
-        return $this->belongsToMany(
-            MataPelajaran::class,
-            "kelas_belajar",
-            "id_guru",
-            "id_mapel"
-        );
-    }*/
+    public function kelas()
+    {
+        return $this->hasMany(Kelas::class, "nip");
+    }
 }
