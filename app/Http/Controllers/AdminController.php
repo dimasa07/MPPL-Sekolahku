@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -22,7 +23,11 @@ class AdminController extends Controller
 
     public function dataSiswa()
     {
-        return view("/admin.data_siswa");
+        $siswas = Siswa::all();
+        foreach ($siswas as $siswa) {
+            echo "<li>" . $siswa->nama;
+        }
+        //return view("/admin.data_siswa");
     }
 
     public function detailSiswa()

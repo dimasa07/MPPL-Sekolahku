@@ -9,6 +9,7 @@ use App\Models\Kelas;
 use App\Models\Mapel;
 use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,8 @@ Route::prefix("/guru")->controller(GuruController::class)->group(function () {
 // SISWA
 Route::prefix("/siswa")->controller(SiswaController::class)->group(function () {
     Route::get('/', "index")->name("siswa");
-    Route::get('/daftar', "daftar")->name("siswa.daftar");
+    Route::post("/login", "login")->name("siswa.login");
+    Route::post('/daftar', "daftar")->name("siswa.daftar");
     Route::get('/daftar/submit', "submitPendaftaran")->name("siswa.daftar.submit");
     Route::get('/kelas10', "kelas10")->name("siswa.kelas10");
     Route::get('/kelas11', "kelas11")->name("siswa.kelas11");
@@ -95,6 +97,6 @@ Route::get("/relasi-3", function () {
     foreach ($jadwals as $jadwal) {
         $kelas = Kelas::where("id_kelas", "=", $jadwal->id_kelas)->first();
         $mapel = Mapel::where("id_mapel", "=", $jadwal->id_mapel)->first();
-        echo '<li>Nama : ' . $kelas->nama . ", Mapel : ".$mapel->nama.", <strong>" . $jadwal->tanggal . "</strong></li>";
+        echo '<li>Nama : ' . $kelas->id_kelas . ", Mapel : " . $mapel->nama . ", <strong>" . $jadwal->tanggal . "</strong></li>";
     }
 });

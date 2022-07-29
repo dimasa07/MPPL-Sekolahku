@@ -13,7 +13,9 @@ class Kelas extends Model
     protected $primaryKey = "id_kelas";
 
     protected $fillable = [
-        "nama"
+        "id_kelas",
+        "nama",
+        "nip"
     ];
 
     public function siswa()

@@ -11,12 +11,16 @@ class Siswa extends Model
 
     protected $table = "siswa";
     protected $primaryKey = "nis";
+    public $timestamps = false;
 
     protected $fillable = [
         "nis",
         "nama",
         "username",
-        "password"
+        "password",
+        "alamat",
+        "id_kelas",
+        "email"
     ];
 
     public function kelas()
