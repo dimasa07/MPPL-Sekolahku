@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SiswaController;
+use App\Models\Kelas;
+use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,3 +72,17 @@ Route::prefix("/admin")->controller(AdminController::class)->group(function () {
 // AUTH
 Route::get('login/validasilogin', function () {
 })->name("login.validasilogin");
+
+
+// TESTING
+// One-to-many
+Route::get("/relasi-1", function () {
+    $siswa = Siswa::where("nis", "=", "10119306")->first();
+    return $siswa->kelas->nama;
+});
+Route::get("/relasi-2", function () {
+    $kelas = Kelas::where("nama", "=", "9A")->first();
+    foreach ($kelas->siswa as $siswa) {
+        echo '<li>Nama : ' . $siswa->nama . " <strong>" . $siswa->nis . "</strong></li>";
+    }
+});
