@@ -16,14 +16,14 @@ class Mapel extends Model
         "nama"
     ];
 
-    /*
-    public function guru(){
+    public function kelas()
+    {
         return $this->belongsToMany(
-            MataPelajaran::class,
-            "kelas_belajar",
+            Kelas::class,
+            "jadwal_pelajaran",
             "id_mapel",
-            "id_guru"
+            "id_kelas"
         );
-    }*/
+    }
 
 }

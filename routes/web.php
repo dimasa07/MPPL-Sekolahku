@@ -4,7 +4,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SiswaController;
+use App\Models\JadwalPelajaran;
 use App\Models\Kelas;
+use App\Models\Mapel;
 use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
 
@@ -84,5 +86,15 @@ Route::get("/relasi-2", function () {
     $kelas = Kelas::where("nama", "=", "9A")->first();
     foreach ($kelas->siswa as $siswa) {
         echo '<li>Nama : ' . $siswa->nama . " <strong>" . $siswa->nis . "</strong></li>";
+    }
+});
+
+// Many-to-many
+Route::get("/relasi-3", function () {
+    $jadwals = JadwalPelajaran::where("id_kelas", "=", 1)->get();
+    foreach ($jadwals as $jadwal) {
+        $kelas = Kelas::where("id_kelas", "=", $jadwal->id_kelas)->first();
+        $mapel = Mapel::where("id_mapel", "=", $jadwal->id_mapel)->first();
+        echo '<li>Nama : ' . $kelas->nama . ", Mapel : ".$mapel->nama.", <strong>" . $jadwal->tanggal . "</strong></li>";
     }
 });
