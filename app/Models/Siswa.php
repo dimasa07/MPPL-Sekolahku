@@ -13,6 +13,8 @@ class Siswa extends Model
     protected $primaryKey = "nis";
     public $timestamps = false;
 
+    public string $statusAkun;
+
     protected $fillable = [
         "nis",
         "nama",

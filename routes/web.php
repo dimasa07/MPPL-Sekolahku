@@ -8,6 +8,7 @@ use App\Models\JadwalPelajaran;
 use App\Models\Kelas;
 use App\Models\Mapel;
 use App\Models\Siswa;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 
@@ -61,13 +62,17 @@ Route::prefix("/admin")->controller(AdminController::class)->group(function () {
     Route::get('/login', "login")->name("admin.login");
     Route::get('/logout', "logout")->name("admin.logout");
     Route::get('/data-siswa', "dataSiswa")->name("admin.data_siswa");
+    Route::get('/tambah-siswa', "tambahSiswa")->name("admin.tambah_siswa");
+    Route::post('/tambah-siswa', "tambahSiswa")->name("admin.tambah_siswa");
     Route::get('/detail-siswa', "detailSiswa")->name("admin.detail_siswa");
     Route::get('/update-siswa', "updateSiswa")->name("admin.update_siswa");
+    Route::get('/delete-siswa', "deleteSiswa")->name("admin.delete_siswa");
     Route::get('/data-guru', "dataGuru")->name("admin.data_guru");
     Route::get('/detail-guru', "detailGuru")->name("admin.detail_guru");
     Route::get('/update-guru', "updateGuru")->name("admin.update_guru");
     Route::post('/tambah-guru', "tambahGuru")->name("admin.tambah_guru");
-    Route::get('/data-materi', "dataMateri")->name("admin.data_materi");
+    Route::get('/data-kelas', "dataKelas")->name("admin.data_kelas");
+    Route::get('/tambah-kelas', "tambahKelas")->name("admin.tambah_kelas");
     Route::get('/tambah-materi', "tambahMateri")->name("admin.tambah_materi");
     Route::get('/update-materi', "updateMateri")->name("admin.update_materi");
     Route::get('/siswa_edit', "editSiswa")->name("admin.siswa_edit");

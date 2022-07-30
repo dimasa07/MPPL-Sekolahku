@@ -8,17 +8,20 @@ use App\Models\Mapel;
 use App\Models\Siswa;
 use App\Services\GuruService;
 use App\Services\KelasService;
+use App\Services\SiswaService;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     private KelasService $kelasService;
     private GuruService $guruService;
+    private SiswaService $siswaService;
 
-    public function __construct(KelasService $kelasService, GuruService $guruService)
+    public function __construct(SiswaService $siswaService, KelasService $kelasService, GuruService $guruService)
     {
         $this->kelasService = $kelasService;
         $this->guruService = $guruService;
+        $this->siswaService = $siswaService;
     }
 
     public function index()
@@ -35,13 +38,41 @@ class AdminController extends Controller
     {
     }
 
-    public function dataSiswa()
+    public function dataSiswa(Request $request)
     {
-        $siswas = Siswa::all();
+        $siswas = $this->siswaService->getAll();
         foreach ($siswas as $siswa) {
-            echo "<li>" . $siswa->nama;
+            if (is_null($siswa->username) || empty($siswa->username)) {
+                $siswa->statusAkun = "Tidak Aktif";
+            } else {
+                $siswa->statusAkun = "Aktif";
+            }
         }
-        //return view("/admin.data_siswa");
+        return view("/admin.data_siswa", [
+            "siswas" => $siswas,
+            "delete" => $request->input("delete"),
+            "hasilTambah" => $request->input("hasilTambah")
+        ]);
+    }
+
+    public function tambahSiswa(Request $request)
+    {
+        $hasil = null;
+        $nis = $request->input("nis");
+        if (!is_null($nis)) {
+            if (is_null($this->siswaService->getByNis($nis))) {
+                $siswa = new Siswa();
+                $siswa->fill($request->input());
+                $hasil = $this->siswaService->tambah($siswa);
+
+                return redirect(route("admin.data_siswa", ["hasilTambah" => $hasil]));
+            } else {
+                $hasil = 0;
+            }
+        }
+
+        $semuaKelas = $this->kelasService->getAll();
+        return view("/admin.tambah_siswa", ["semuaKelas" => $semuaKelas, "hasilTambah" => $hasil]);
     }
 
     public function detailSiswa()
@@ -52,6 +83,14 @@ class AdminController extends Controller
     public function updateSiswa()
     {
         return view("/admin.update_siswa");
+    }
+
+    public function deleteSiswa(Request $request)
+    {
+        $nis = $request->input("nis");
+        $hasil = $this->siswaService->delete($nis);
+
+        return redirect(route("admin.data_siswa", ["delete" => $hasil]), 302);
     }
 
     public function dataGuru()
@@ -115,7 +154,7 @@ class AdminController extends Controller
         // $kelas = new Kelas();
         // $kelas->fill($request->input());
         // $this->kelasService->tambah($kelas);
-        
+
         // Get wali
         $kelas = $this->kelasService->getByNama("9D");
 

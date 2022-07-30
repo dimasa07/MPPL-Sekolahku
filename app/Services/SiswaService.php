@@ -10,7 +10,7 @@ class SiswaService
 
     public function tambah(Siswa $siswa)
     {
-        if(!is_null($this->getByNis($siswa->nis))){
+        if (!is_null($this->getByNis($siswa->nis))) {
             return null;
         }
         return $siswa->save();
@@ -30,9 +30,14 @@ class SiswaService
     {
         return Siswa::where("id_kelas", "=", $kelas->id_kelas)->get();
     }
-    
+
     public function getAll()
     {
         return Siswa::all();
+    }
+
+    public function delete(string $nis)
+    {
+        return Siswa::where("nis", "=", $nis)->delete();
     }
 }
