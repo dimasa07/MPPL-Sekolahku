@@ -2,11 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
+use App\Models\Kelas;
+use App\Models\Mapel;
 use App\Models\Siswa;
+use App\Services\GuruService;
+use App\Services\KelasService;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    private KelasService $kelasService;
+    private GuruService $guruService;
+
+    public function __construct(KelasService $kelasService, GuruService $guruService)
+    {
+        $this->kelasService = $kelasService;
+        $this->guruService = $guruService;
+    }
+
     public function index()
     {
         return view("/admin.index");
@@ -55,9 +69,25 @@ class AdminController extends Controller
         return view("/admin.update_guru");
     }
 
-    public function tambahGuru()
+    public function tambahGuru(Request $request)
     {
-        return redirect("/guru/daftar");
+        $guru = new Guru();
+        $guru->fill($request->input());
+
+        $hasil = $this->guruService->tambah($guru);
+
+        return response($hasil);
+    }
+
+    public function tambahMapel(Request $request)
+    {
+        $nama = $request->input("nama");
+
+        $mapel = Mapel::create([
+            "nama" => $nama
+        ]);
+
+        return response($mapel);
     }
 
     public function dataMateri()
@@ -77,5 +107,18 @@ class AdminController extends Controller
 
     public function editSiswa()
     {
+    }
+
+    public function test(Request $request)
+    {
+        // Tambah kelas
+        // $kelas = new Kelas();
+        // $kelas->fill($request->input());
+        // $this->kelasService->tambah($kelas);
+        
+        // Get wali
+        $kelas = $this->kelasService->getByNama("9D");
+
+        return response($kelas->guru->nama);
     }
 }

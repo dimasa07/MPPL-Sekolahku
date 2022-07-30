@@ -10,6 +10,7 @@ class DetailTugas extends Model
     use HasFactory;
 
     protected $table = "detail_tugas";
+    public $timestamps = false;
 
     protected $fillable = [
         "submit"

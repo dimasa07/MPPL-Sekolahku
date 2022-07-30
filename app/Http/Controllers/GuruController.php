@@ -2,27 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view("/guru.index");
     }
 
-    public function login(){
+    public function login()
+    {
         return view("/guru.login");
     }
 
-    public function daftar(){
+    public function daftar()
+    {
         return view("/guru.daftar");
     }
 
-    public function tambahMateri(){
+    public function tambahMateri()
+    {
         return view("/guru.tambah_materi");
     }
 
-    public function logout(){
-        
+    public function absensiSiswa(Request $request)
+    {
+        $nip = $request->input("nip");
+        $guru = Guru::where("nip", "=", $nip)->first();
+        $kelas = $guru->kelas;
+
+        return response($kelas);
+    }
+
+    public function logout()
+    {
     }
 }

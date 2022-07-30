@@ -11,10 +11,13 @@ class Guru extends Model
 
     protected $table = "guru";
     protected $primaryKey = "nip";
+    public $timestamps = false;
 
     protected $fillable = [
         "nip",
         "nama",
+        "alamat",
+        "email",
         "username",
         "password"
     ];

@@ -11,6 +11,7 @@ class Tugas extends Model
 
     protected $table = "tugas";
     protected $primaryKey = "id_tugas";
+    public $timestamps = false;
 
     protected $fillable = [
         "materi",

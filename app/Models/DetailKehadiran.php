@@ -10,6 +10,7 @@ class DetailKehadiran extends Model
     use HasFactory;
 
     protected $table = "detail_kehadiran";
+    public $timestamps = false;
 
     protected $fillable = [
         "keterangan"

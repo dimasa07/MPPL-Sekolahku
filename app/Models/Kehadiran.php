@@ -11,6 +11,7 @@ class Kehadiran extends Model
 
     protected $table = "kehadiran";
     protected $primaryKey = "id_kehadiran";
+    public $timestamps = false;
 
     protected $fillable = [
         "tanggal"

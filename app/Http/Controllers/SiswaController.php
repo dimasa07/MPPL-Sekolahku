@@ -4,45 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelas;
 use App\Models\Siswa;
+use App\Services\KelasService;
+use App\Services\SiswaService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class SiswaController extends Controller
 {
+    private SiswaService $siswaService;
+    private KelasService $kelasService;
+
+    public function __construct(SiswaService $siswaService, KelasService $kelasService)
+    {
+        $this->siswaService = $siswaService;
+        $this->kelasService = $kelasService;
+    }
+
     public function index(Request $request)
     {
         return view("/siswa.index");
     }
 
-    public function daftar(Request $request): JsonResponse
+    public function daftar(Request $request)
     {
-        $nis = $request->input("nis");
-        $nama = $request->input("nama");
-        $alamat = $request->input("alamat");
-        $email = $request->input("email");
-        $username = $request->input("username");
-        $password = $request->input("password");
-        $kelas = Kelas::where("nama", "=", $request->input("kelas"))->first();
+        $siswa = new Siswa();
+        $siswa->fill($request->input());
 
-        Siswa::create([
-            "nis" => $nis,
-            "nama" => $nama,
-            "alamat" => $alamat,
-            "username" => $username,
-            "password" => $password,
-            "id_kelas" => $kelas->id_kelas,
-            "email" => $email
-        ]);
-        $siswa = Siswa::where("nis", "=", $nis);
-        return response()->json([
-            "nis" => $nis,
-            "nama" => $nama,
-            "alamat" => $alamat,
-            "email" => $email,
-            "username" => $username,
-            "password" => $password,
-            "id_kelas" => $kelas->id_kelas
-        ]);
+        $hasil = $this->siswaService->tambah($siswa);
+
+        return response($hasil);
 
         //return view("/siswa.daftar", ["email" => "contoh@gmail.com"]);
     }
@@ -81,5 +71,24 @@ class SiswaController extends Controller
 
     public function kelas12(Request $request)
     {
+    }
+
+    public function test(Request $request)
+    {
+        // getByNis
+        // $siswa = $this->siswaService->getByNis($request->input("nis"));
+
+        // getByNis
+        // $siswa = $this->siswaService->getByNama($request->input("nama"));
+
+        // getByKelas
+        // $kelas = $this->kelasService->getByNama($request->input("nama"));
+        // $siswa = $this->siswaService->getByKelas($kelas);
+
+        // getAll
+        $siswa = $this->siswaService->getAll();
+
+
+        return response($siswa);
     }
 }

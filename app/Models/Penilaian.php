@@ -11,6 +11,7 @@ class Penilaian extends Model
 
     protected $table = "penilaian";
     protected $primaryKey = "id_penilaian";
+    public $timestamps = false;
 
 
     public function siswa()

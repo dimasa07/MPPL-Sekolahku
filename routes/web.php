@@ -36,6 +36,7 @@ Route::prefix("/guru")->controller(GuruController::class)->group(function () {
     Route::get('/login', "login")->name("guru.login");
     Route::get('/daftar', "daftar")->name("guru.daftar");
     Route::get('/tambah-materi', "tambahMateri")->name("guru.tambah_materi");
+    Route::get('/absensi-siswa', "absensiSiswa")->name("guru.absensi_siswa");
     Route::get('/logout', "logout")->name("guru.logout");
 });
 
@@ -50,6 +51,7 @@ Route::prefix("/siswa")->controller(SiswaController::class)->group(function () {
     Route::get('/kelas11', "kelas11")->name("siswa.kelas11");
     Route::get('/kelas12', "kelas12")->name("siswa.kelas12");
     Route::get('/logout', "logout")->name("siswa.logout");
+    Route::get('/test', "test")->name("siswa.test");
 });
 
 
@@ -64,13 +66,15 @@ Route::prefix("/admin")->controller(AdminController::class)->group(function () {
     Route::get('/data-guru', "dataGuru")->name("admin.data_guru");
     Route::get('/detail-guru', "detailGuru")->name("admin.detail_guru");
     Route::get('/update-guru', "updateGuru")->name("admin.update_guru");
-    Route::get('/tambah-guru', "tambahGuru")->name("admin.tambah_guru");
+    Route::post('/tambah-guru', "tambahGuru")->name("admin.tambah_guru");
     Route::get('/data-materi', "dataMateri")->name("admin.data_materi");
     Route::get('/tambah-materi', "tambahMateri")->name("admin.tambah_materi");
     Route::get('/update-materi', "updateMateri")->name("admin.update_materi");
     Route::get('/siswa_edit', "editSiswa")->name("admin.siswa_edit");
+    Route::post('/tambah-mapel', "tambahMapel")->name("admin.tambah_mapel");
+    Route::get('/test', "test")->name("admin.test");
+    Route::post('/test', "test")->name("admin.test");
 });
-
 
 
 // AUTH

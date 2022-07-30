@@ -10,6 +10,7 @@ class DetailPenilaian extends Model
     use HasFactory;
 
     protected $table = "detail_penilaian";
+    public $timestamps = false;
 
     protected $fillable = [
         "nilai"
