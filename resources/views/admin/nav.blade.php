@@ -70,7 +70,27 @@
                             </li>
                         </ul>
                     </li>
-
+                    <li class="menu-header">Manajemen Pelajaran</li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i>
+                            <span>Mata Pelajaran</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="{{ route('admin.data_mapel') }}">Data Mata Pelajaran</a>
+                            </li>
+                            <li><a class="nav-link" href="{{ route('admin.tambah_mapel') }}">Tambah Mata Pelajaran</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i>
+                            <span>Jadwal Pelajaran</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="{{ route('admin.data_jadwal') }}">Data Jadwal Pelajaran</a>
+                            </li>
+                            <li><a class="nav-link" href="{{ route('admin.tambah_jadwal') }}">Tambah Jadwal Pelajaran</a>
+                            </li>
+                        </ul>
+                    </li>
             </aside>
         </div>
     </div>

@@ -60,8 +60,8 @@
                                         <td>{{ $siswa->statusAkun }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.detail_siswa', ['nis'=>$siswa->nis]) }}" class="btn btn-success">Detail</a>
-                                            <a href="{{ route('admin.update_siswa', ['nis'=>$siswa->nis]) }}" class="btn btn-info">Update</a>
-                                            <a href="{{ route('admin.delete_siswa', ['nis'=>$siswa->nis]) }}" class="btn btn-danger remove" onclick="javascript: return confirm('Yakin hapus? NIS: {{ $siswa->nis }} & Nama: {{ $siswa->nama }}');">Hapus</a>
+                                            <a href="{{ route('admin.edit_siswa', ['nis'=>$siswa->nis]) }}" class="btn btn-info">Update</a>
+                                            <a href="{{ route('admin.hapus_siswa', ['nis'=>$siswa->nis]) }}" class="btn btn-danger remove" onclick="javascript: return confirm('Yakin hapus? NIS: {{ $siswa->nis }} & Nama: {{ $siswa->nama }}');">Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -74,23 +74,12 @@
         </section>
     </div>
 
-    @if(isset($delete) && $delete==1)
+    @if(Session::has("alert"))
     <script>
         Swal.fire({
-            icon: 'success',
-            title: 'Siswa telah dihapus!',
-            text: 'Data telah diperbarui!',
-            showConfirmButton: false,
-            timer: 2500
-        })
-    </script>
-    @endif
-    @if(isset($hasilTambah) &&$hasilTambah==1)
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Siswa sukses ditambah!',
-            text: '',
+            icon: "{{ Session::get('icon') }}",
+            title: "{{ Session::get('title') }}",
+            text: "{{ Session::get('text') }}",
             showConfirmButton: false,
             timer: 2500
         })

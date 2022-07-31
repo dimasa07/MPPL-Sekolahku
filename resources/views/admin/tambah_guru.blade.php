@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Tambah Siswa </title>
+    <title>Tambah Guru </title>
     <!-- General CSS Files -->
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
@@ -30,39 +30,31 @@
                 <div class="card card-success">
                     <div class="col-md-12 text-center">
                         <p class="registration-title font-weight-bold display-4 mt-4" style="color:black; font-size: 50px;">
-                            Tambah Siswa</p>
+                            Tambah Guru</p>
                         <hr>
                     </div>
                     <div id="detail" class="card-body">
-                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.tambah_siswa') }}">
+                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.tambah_guru') }}">
                             <div class="col-md-12 bg-white" style="border-radius:3px;box-shadow:rgba(0, 0, 0, 0.03) 0px 4px 8px 0px">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="inputEmail4">Nomor Induk Siswa</label>
-                                        <input autocomplete="off" required type="text" maxlength="8" id="nis" name="nis" class="form-control">
+                                        <label for="inputEmail4">Nomor Induk Pengajar</label>
+                                        <input autocomplete="off" required type="text" maxlength="8" name="nip" class="form-control">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="inputEmail4">Nama Siswa</label>
-                                        <input autocomplete="off" required type="text" id="namasiswa" name="nama" class="form-control">
+                                        <label for="inputEmail4">Nama Guru</label>
+                                        <input autocomplete="off" required type="text"  name="nama" class="form-control">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="inputEmail4">Alamat Siswa</label>
-                                        <input autocomplete="off" required type="text" id="alamatsiswa" name="alamat" class="form-control">
+                                        <label for="inputEmail4">Alamat Guru</label>
+                                        <input autocomplete="off" required type="text"  name="alamat" class="form-control">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="inputEmail4">Email Siswa</label>
-                                        <input autocomplete="off" required type="text" id="emailsiswa" name="email" class="form-control">
+                                        <label for="inputEmail4">Email Guru</label>
+                                        <input autocomplete="off" required type="text"  name="email" class="form-control">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputState">Kelas</label>
-                                    <select required id="inputState" name="id_kelas" class="form-control">
-                                        @foreach($semuaKelas as $kelas)
-                                        <option value="{{ $kelas->id_kelas }}">{{ $kelas->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-block btn-success">Tambah Siswa</button>
+                                <button type="submit" class="btn btn-block btn-success">Tambah Guru</button>
                             </div>
                         </form>
                     </div>

@@ -12,6 +12,7 @@ class Guru extends Model
     protected $table = "guru";
     protected $primaryKey = "nip";
     public $timestamps = false;
+    public string $statusAkun = "";
 
     protected $fillable = [
         "nip",

@@ -36,5 +36,8 @@ class KelasService
         return Kelas::where("nip", "=", $guru->nip)->first();
     }
 
-    
+    public function delete(string $nip)
+    {
+        return Kelas::where("id_kelas", "=", $nip)->delete();
+    }
 }

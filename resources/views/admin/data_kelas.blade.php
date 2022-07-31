@@ -5,7 +5,8 @@
 
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Data Guru - Learnify</title>
+    <title>Data Kelas</title>
+
     <!-- General CSS Files -->
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
@@ -27,12 +28,12 @@
 
     <!-- Main Content -->
     <div class="main-content">
-    <section class="section">
+        <section class="section">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title" style="color: black;">Manajemen Data Guru</h2>
+                    <h2 class="card-title" style="color: black;">Manajemen Data Kelas</h2>
                     <hr>
-                    <a href="{{ route('admin.tambah_guru') }}" class="btn btn-success">Tambah Guru</a>
+                    <a href="{{ route('admin.tambah_kelas') }}" class="btn btn-success">Tambah Kelas</a>
                 </div>
             </div>
             <div class="row">
@@ -42,23 +43,21 @@
                             <table id="example" class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr class="text-center">
-                                        <th scope="col">NIP</th>
-                                        <th scope="col">Nama Guru</th>
-                                        <th scope="col">Status Akun</th>
+                                        <th scope="col">Nama Kelas</th>
+                                        <th scope="col">Wali Kelas</th>
                                         <th scope="col">Opsi</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($gurus as $guru)
+                                    @foreach ($kelas as $k)
                                     <tr>
-                                        <td>{{ $guru->nip }}</td>
-                                        <td>{{ $guru->nama }}</td>
-                                        <td>{{ $guru->statusAkun }}</td>
+                                        <td>{{ $k->nama }}</td>
+                                        <td>{{ $k->guru->nama }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.detail_guru', ['nip'=>$guru->nip]) }}" class="btn btn-success">Detail</a>
-                                            <a href="{{ route('admin.edit_guru', ['nip'=>$guru->nip]) }}" class="btn btn-info">Update</a>
-                                            <a href="{{ route('admin.hapus_guru', ['nip'=>$guru->nip]) }}" class="btn btn-danger remove" onclick="javascript: return confirm('Yakin hapus? NIP: {{ $guru->nip }} & Nama: {{ $guru->nama }}');">Hapus</a>
+                                            <a href="{{ route('admin.detail_kelas', ['id_kelas'=>$k->id_kelas]) }}" class="btn btn-success">Detail</a>
+                                            <a href="{{ route('admin.edit_kelas', ['id_kelas'=>$k->id_kelas]) }}" class="btn btn-info">Update</a>
+                                            <a href="{{ route('admin.hapus_kelas',['id_kelas'=>$k->id_kelas]) }}" class="btn btn-danger remove" onclick="javascript: return confirm('Yakin hapus? Nama Kelas: {{ $k->nama }}');">Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -70,6 +69,7 @@
             </div>
         </section>
     </div>
+
     @if(Session::has("alert"))
     <script>
         Swal.fire({

@@ -29,4 +29,9 @@ class GuruService
     {
         return Guru::where("nama", "LIKE", "%" . $nama . "%")->get();
     }
+
+    public function delete(string $nip)
+    {
+        return Guru::where("nip", "=", $nip)->delete();
+    }
 }

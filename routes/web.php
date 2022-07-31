@@ -61,22 +61,41 @@ Route::prefix("/admin")->controller(AdminController::class)->group(function () {
     Route::get('/', "index")->name("admin");
     Route::get('/login', "login")->name("admin.login");
     Route::get('/logout', "logout")->name("admin.logout");
+    // Siswa
     Route::get('/data-siswa', "dataSiswa")->name("admin.data_siswa");
     Route::get('/tambah-siswa', "tambahSiswa")->name("admin.tambah_siswa");
     Route::post('/tambah-siswa', "tambahSiswa")->name("admin.tambah_siswa");
     Route::get('/detail-siswa', "detailSiswa")->name("admin.detail_siswa");
-    Route::get('/update-siswa', "updateSiswa")->name("admin.update_siswa");
-    Route::get('/delete-siswa', "deleteSiswa")->name("admin.delete_siswa");
+    Route::get('/edit-siswa', "updateSiswa")->name("admin.edit_siswa");
+    Route::get('/hapus-siswa', "hapusSiswa")->name("admin.hapus_siswa");
+    // Guru
     Route::get('/data-guru', "dataGuru")->name("admin.data_guru");
     Route::get('/detail-guru', "detailGuru")->name("admin.detail_guru");
-    Route::get('/update-guru', "updateGuru")->name("admin.update_guru");
+    Route::get('/tambah-guru', "tambahGuru")->name("admin.tambah_guru");
     Route::post('/tambah-guru', "tambahGuru")->name("admin.tambah_guru");
+    Route::get('/edit-guru', "editGuru")->name("admin.edit_guru");
+    Route::get('/hapus-guru', "hapusGuru")->name("admin.hapus_guru");
+    // Kelas
     Route::get('/data-kelas', "dataKelas")->name("admin.data_kelas");
+    Route::get('/detail-kelas', "detailKelas")->name("admin.detail_kelas");
     Route::get('/tambah-kelas', "tambahKelas")->name("admin.tambah_kelas");
+    Route::post('/tambah-kelas', "tambahKelas")->name("admin.tambah_kelas");
+    Route::get('/edit-kelas', "editKelas")->name("admin.edit_kelas");
+    Route::get('/hapus-kelas', "hapusKelas")->name("admin.hapus_kelas");
+    // Mapel
+    Route::get('/data-mapel', "dataMapel")->name("admin.data_mapel");
+    Route::get('/tambah-mapel', "tambahMapel")->name("admin.tambah_mapel");
+    Route::post('/tambah-mapel', "tambahMapel")->name("admin.tambah_mapel");
+    Route::get('/edit-mapel', "editMapel")->name("admin.edit_mapel");
+    // Materi
+    Route::get('/data-materi', "dataMateri")->name("admin.data_materi");
     Route::get('/tambah-materi', "tambahMateri")->name("admin.tambah_materi");
     Route::get('/update-materi', "updateMateri")->name("admin.update_materi");
-    Route::get('/siswa_edit', "editSiswa")->name("admin.siswa_edit");
-    Route::post('/tambah-mapel', "tambahMapel")->name("admin.tambah_mapel");
+    // Jadwal
+    Route::get('/data-jadwal', "dataJadwal")->name("admin.data_jadwal");
+    Route::get('/tambah-jadwal', "tambahJadwal")->name("admin.tambah_jadwal");
+    Route::get('/update-jadwal', "updateJadwal")->name("admin.update_jadwal");
+
     Route::get('/test', "test")->name("admin.test");
     Route::post('/test', "test")->name("admin.test");
 });
