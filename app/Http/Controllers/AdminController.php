@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\JadwalPelajaran;
 use App\Models\Kelas;
 use App\Models\Mapel;
 use App\Models\Siswa;
 use App\Services\GuruService;
+use App\Services\JadwalPelajaranService;
 use App\Services\KelasService;
+use App\Services\MapelService;
 use App\Services\SiswaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -17,12 +20,21 @@ class AdminController extends Controller
     private KelasService $kelasService;
     private GuruService $guruService;
     private SiswaService $siswaService;
+    private MapelService $mapelService;
+    private JadwalPelajaranService $jadwalPelajaranService;
 
-    public function __construct(SiswaService $siswaService, KelasService $kelasService, GuruService $guruService)
-    {
+    public function __construct(
+        SiswaService $siswaService,
+        KelasService $kelasService,
+        GuruService $guruService,
+        MapelService $mapelService,
+        JadwalPelajaranService $jadwalPelajaranService
+    ) {
         $this->kelasService = $kelasService;
         $this->guruService = $guruService;
         $this->siswaService = $siswaService;
+        $this->mapelService = $mapelService;
+        $this->jadwalPelajaranService = $jadwalPelajaranService;
     }
 
     public function index()
@@ -153,6 +165,72 @@ class AdminController extends Controller
         return view("/admin.tambah_kelas", ["semuaGuru" => $semuaGuru]);
     }
 
+    public function tambahMapel(Request $request)
+    {
+        $nama = $request->input("nama");
+        if (!is_null($nama)) {
+            if (is_null($this->mapelService->getByNama($nama))) {
+                $mapel = new Mapel();
+                $mapel->fill($request->input());
+                $hasil = $this->mapelService->tambah($mapel);
+                if ($hasil == 1) {
+                    $icon =  "success";
+                    $title = "Tambah Mata Pelajaran sukses!";
+                } else if ($hasil == 0) {
+                    $icon =  "warning";
+                    $title = "Tambah Mata Pelajaran gagal!";
+                }
+                Session::flash("alert", "");
+                Session::flash("icon", $icon);
+                Session::flash("title", $title);
+                Session::flash("text", "");
+                return redirect(route("admin.data_mapel"));
+            } else {
+                Session::flash("alert", "");
+                Session::flash("icon", "warning");
+                Session::flash("title", "Tambah Mata Pelajaran gagal");
+                Session::flash("text", "Nama Mata Pelajaran Sudah Tersedia");
+            }
+        }
+
+        return view("/admin.tambah_mapel");
+    }
+
+    public function tambahJadwal(Request $request)
+    {
+        $id_kelas = $request->input("id_kelas");
+        $id_mapel = $request->input("id_mapel");
+        if (!is_null($id_kelas) && !is_null($id_mapel)) {
+            if (is_null($this->jadwalPelajaranService->getByKelasAndMapel($id_kelas, $id_mapel))) {
+                $jadwal = new JadwalPelajaran();
+                $jadwal->id_kelas = $id_kelas;
+                $jadwal->id_mapel = $id_mapel;
+                $jadwal->waktu = $request->input("waktu");
+                $hasil = $this->jadwalPelajaranService->tambah($jadwal);
+                if ($hasil != null) {
+                    $icon =  "success";
+                    $title = "Tambah Jadwal sukses!";
+                } else if ($hasil == 0) {
+                    $icon =  "warning";
+                    $title = "Tambah Jadwal gagal!";
+                }
+                Session::flash("alert", "");
+                Session::flash("icon", $icon);
+                Session::flash("title", $title);
+                Session::flash("text", "");
+                return redirect(route("admin.detail_jadwal", ['id_kelas' => $id_kelas]));
+            } else {
+                Session::flash("alert", "");
+                Session::flash("icon", "warning");
+                Session::flash("title", "Tambah Jadwal gagal");
+                Session::flash("text", "Jawal Mata Pelajaran Sudah Tersedia");
+            }
+        }
+
+        $mapels = $this->mapelService->getAll();
+        return view("/admin.tambah_jadwal", ["mapels" => $mapels, "id_kelas" => $id_kelas]);
+    }
+
     public function detailSiswa()
     {
         return view("/admin.detail_siswa");
@@ -220,6 +298,45 @@ class AdminController extends Controller
         return redirect(route("admin.data_kelas"), 302);
     }
 
+    public function hapusMapel(Request $request)
+    {
+        $id_mapel = $request->input("id_mapel");
+        $hasil = $this->mapelService->delete($id_mapel);
+
+        if ($hasil == 1) {
+            $icon =  "success";
+            $title = "Hapus Mata Pelajaran sukses!";
+        } else if ($hasil == 0) {
+            $icon =  "warning";
+            $title = "Hapus Mata Pelajaran gagal!";
+        }
+        Session::flash("alert", "");
+        Session::flash("icon", $icon);
+        Session::flash("title", $title);
+        Session::flash("text", "");
+        return redirect(route("admin.data_mapel"), 302);
+    }
+
+    public function hapusJadwal(Request $request)
+    {
+        $id_jadwal = $request->input("id_jadwal");
+        $id_kelas = $request->input("id_kelas");
+        $hasil = $this->jadwalPelajaranService->delete($id_jadwal);
+
+        if ($hasil == 1) {
+            $icon =  "success";
+            $title = "Hapus Jadwal Pelajaran sukses!";
+        } else if ($hasil == 0) {
+            $icon =  "warning";
+            $title = "Hapus Jadwal Pelajaran gagal!";
+        }
+        Session::flash("alert", "");
+        Session::flash("icon", $icon);
+        Session::flash("title", $title);
+        Session::flash("text", "");
+        return redirect(route("admin.detail_jadwal",["id_kelas"=>$id_kelas]), 302);
+    }
+
     public function dataGuru()
     {
         $gurus = $this->guruService->getAll();
@@ -245,26 +362,50 @@ class AdminController extends Controller
         ]);
     }
 
+    public function dataMapel()
+    {
+        $mapels = $this->mapelService->getAll();
+
+        return view("/admin.data_mapel", [
+            "mapels" => $mapels
+        ]);
+    }
+
+    public function dataJadwal()
+    {
+        $kelas = $this->kelasService->getAll();
+
+        return view("/admin.data_jadwal", [
+            "kelas" => $kelas
+        ]);
+    }
+
     public function detailGuru()
     {
         return view("/admin.detail_guru");
     }
 
+    public function detailJadwal(Request $request)
+    {
+        $id_kelas = $request->input("id_kelas");
+        $kelas = $this->kelasService->getById($id_kelas);
+        $jadwals = $this->jadwalPelajaranService->getByKelas($id_kelas);
+        foreach ($jadwals as $jadwal) {
+            $jadwal->nama_kelas = $this->kelasService->getById($id_kelas)->nama;
+            $jadwal->nama_mapel = $this->mapelService->getById($jadwal->id_mapel)->nama;
+            $jadwal->waktu = $jadwal->waktu;
+        }
+
+        return view("/admin.detail_jadwal", [
+            "jadwals" => $jadwals,
+            "id_kelas" => $id_kelas,
+            "nama_kelas" => $kelas->nama
+        ]);
+    }
+
     public function editGuru()
     {
         return view("/admin.edit_guru");
-    }
-
-
-    public function tambahMapel(Request $request)
-    {
-        $nama = $request->input("nama");
-
-        $mapel = Mapel::create([
-            "nama" => $nama
-        ]);
-
-        return response($mapel);
     }
 
     public function dataMateri()

@@ -87,14 +87,18 @@ Route::prefix("/admin")->controller(AdminController::class)->group(function () {
     Route::get('/tambah-mapel', "tambahMapel")->name("admin.tambah_mapel");
     Route::post('/tambah-mapel', "tambahMapel")->name("admin.tambah_mapel");
     Route::get('/edit-mapel', "editMapel")->name("admin.edit_mapel");
+    Route::get('/hapus-mapel', "hapusMapel")->name("admin.hapus_mapel");
     // Materi
     Route::get('/data-materi', "dataMateri")->name("admin.data_materi");
     Route::get('/tambah-materi', "tambahMateri")->name("admin.tambah_materi");
     Route::get('/update-materi', "updateMateri")->name("admin.update_materi");
     // Jadwal
     Route::get('/data-jadwal', "dataJadwal")->name("admin.data_jadwal");
+    Route::get('/detail-jadwal', "detailJadwal")->name("admin.detail_jadwal");
     Route::get('/tambah-jadwal', "tambahJadwal")->name("admin.tambah_jadwal");
-    Route::get('/update-jadwal', "updateJadwal")->name("admin.update_jadwal");
+    Route::post('/tambah-jadwal', "tambahJadwal")->name("admin.tambah_jadwal");
+    Route::get('/edit-jadwal', "editJadwal")->name("admin.edit_jadwal");
+    Route::get('/hapus-jadwal', "hapusJadwal")->name("admin.hapus_jadwal");
 
     Route::get('/test', "test")->name("admin.test");
     Route::post('/test', "test")->name("admin.test");

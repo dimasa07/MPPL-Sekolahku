@@ -87,8 +87,6 @@
                         <ul class="dropdown-menu">
                             <li><a class="nav-link" href="{{ route('admin.data_jadwal') }}">Data Jadwal Pelajaran</a>
                             </li>
-                            <li><a class="nav-link" href="{{ route('admin.tambah_jadwal') }}">Tambah Jadwal Pelajaran</a>
-                            </li>
                         </ul>
                     </li>
             </aside>

@@ -33,6 +33,9 @@ class MapelService
         return Mapel::all();
     }
 
-    
+    public function delete(string $id_mapel)
+    {
+        return Mapel::where("id_mapel", "=", $id_mapel)->delete();
+    }
 
 }

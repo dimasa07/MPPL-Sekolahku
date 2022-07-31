@@ -23,8 +23,9 @@ class JadwalPelajaranService
     {
         return JadwalPelajaran::where("id_jadwal", "=", $id)->first();
     }
-    public function getByKelas(string $kelas)
+    public function getByKelas(string $id_kelas)
     {
+        return JadwalPelajaran::where("id_kelas", "=", $id_kelas)->get();
     }
 
     public function getByKelasAndMapel(string $id_kelas, string $id_mapel)
@@ -35,5 +36,10 @@ class JadwalPelajaranService
     public function getAll()
     {
         return JadwalPelajaran::all();
+    }
+
+    public function delete(string $id)
+    {
+        return JadwalPelajaran::where("id_jadwal", "=", $id)->delete();
     }
 }
