@@ -231,16 +231,6 @@ class AdminController extends Controller
         return view("/admin.tambah_jadwal", ["mapels" => $mapels, "id_kelas" => $id_kelas]);
     }
 
-    public function detailSiswa()
-    {
-        return view("/admin.detail_siswa");
-    }
-
-    public function editSiswa()
-    {
-        return view("/admin.edit_siswa");
-    }
-
     public function hapusSiswa(Request $request)
     {
         $nis = $request->input("nis");
@@ -334,7 +324,7 @@ class AdminController extends Controller
         Session::flash("icon", $icon);
         Session::flash("title", $title);
         Session::flash("text", "");
-        return redirect(route("admin.detail_jadwal",["id_kelas"=>$id_kelas]), 302);
+        return redirect(route("admin.detail_jadwal", ["id_kelas" => $id_kelas]), 302);
     }
 
     public function dataGuru()
@@ -403,24 +393,116 @@ class AdminController extends Controller
         ]);
     }
 
-    public function editGuru()
+
+    public function editSiswa(Request $request)
     {
-        return view("/admin.edit_guru");
+        if (!is_null($request->input("nama"))) {
+            $siswa = $this->siswaService->getByNis($request->input("nis"));
+
+            $hasil = $siswa->update([
+                "nama" => $request->input("nama"),
+                "alamat" => $request->input("alamat"),
+                "email" => $request->input("email"),
+                "id_kelas" => $request->input("id_kelas")
+            ]);
+
+            if ($hasil == 1) {
+                $icon =  "success";
+                $title = "Update Siswa sukses!";
+            } else if ($hasil == 0) {
+                $icon =  "warning";
+                $title = "Update Siswa gagal!";
+            }
+            Session::flash("alert", "");
+            Session::flash("icon", $icon);
+            Session::flash("title", $title);
+            Session::flash("text", "");
+            return redirect(route("admin.data_siswa"), 302);
+        }
+        $semuaKelas = $this->kelasService->getAll();
+        $siswa = $this->siswaService->getByNis($request->input("nis"));
+        return view("admin.tambah_siswa", ["semuaKelas" => $semuaKelas, "siswa" => $siswa]);
     }
 
-    public function dataMateri()
+    public function editGuru(Request $request)
     {
-        return view("/admin.data_materi");
+        $guru = $this->guruService->getByNip($request->input("nip"));
+        if (!is_null($request->input("nama"))) {
+
+
+            $hasil = $guru->update([
+                "nama" => $request->input("nama"),
+                "alamat" => $request->input("alamat"),
+                "email" => $request->input("email")
+            ]);
+
+            if ($hasil == 1) {
+                $icon =  "success";
+                $title = "Update Guru sukses!";
+            } else if ($hasil == 0) {
+                $icon =  "warning";
+                $title = "Update Guru gagal!";
+            }
+            Session::flash("alert", "");
+            Session::flash("icon", $icon);
+            Session::flash("title", $title);
+            Session::flash("text", "");
+            return redirect(route("admin.data_guru"), 302);
+        }
+
+        return view("admin.tambah_guru", ["guru" => $guru]);
     }
 
-    public function tambahMateri()
+    public function editKelas(Request $request)
     {
-        return view("/admin.tambah_materi");
+        $kelas = $this->kelasService->getById($request->input("id_kelas"));
+        if (!is_null($request->input("nip"))) {
+            $hasil = $kelas->update([
+                "nip" => $request->input("nip")
+            ]);
+
+            if ($hasil == 1) {
+                $icon =  "success";
+                $title = "Update Kelas sukses!";
+            } else if ($hasil == 0) {
+                $icon =  "warning";
+                $title = "Update Kelas gagal!";
+            }
+            Session::flash("alert", "");
+            Session::flash("icon", $icon);
+            Session::flash("title", $title);
+            Session::flash("text", "");
+            return redirect(route("admin.data_kelas"), 302);
+        }
+        $semuaGuru = $this->guruService->getAll();
+
+        return view("admin.tambah_kelas", ["semuaGuru" => $semuaGuru, "kelas" => $kelas]);
     }
 
-    public function editMateri()
+    public function editJadwal(Request $request)
     {
-        return view("/admin.edit_materi");
+        $jadwal = $this->jadwalPelajaranService->getById($request->input("id_jadwal"));
+        if (!is_null($request->input("waktu"))) {
+            $hasil = $jadwal->update([
+                "waktu" => $request->input("waktu")
+            ]);
+
+            if ($hasil == 1) {
+                $icon =  "success";
+                $title = "Update Jadwal sukses!";
+            } else if ($hasil == 0) {
+                $icon =  "warning";
+                $title = "Update Jadwal gagal!";
+            }
+            Session::flash("alert", "");
+            Session::flash("icon", $icon);
+            Session::flash("title", $title);
+            Session::flash("text", "");
+            return redirect(route("admin.detail_jadwal", ["id_kelas" => $jadwal->id_kelas]), 302);
+        }
+        $semuaGuru = $this->guruService->getAll();
+        $mapel = $this->mapelService->getById($jadwal->id_mapel);
+        return view("admin.tambah_jadwal", ["id_kelas" => $request->input("id_kelas"), "jadwal" => $jadwal, "nama_mapel" => $mapel->nama]);
     }
 
     public function test(Request $request)

@@ -30,31 +30,40 @@
                 <div class="card card-success">
                     <div class="col-md-12 text-center">
                         <p class="registration-title font-weight-bold display-4 mt-4" style="color:black; font-size: 50px;">
-                            Tambah Guru</p>
+                        @if(isset($guru)) Edit Guru @else Tambah Guru @endif</p>
                         <hr>
                     </div>
                     <div id="detail" class="card-body">
+                    @if(isset($guru))
+                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.edit_guru') }}">
+                    @else
                         <form method="post" enctype="multipart/form-data" action="{{ route('admin.tambah_guru') }}">
+                    @endif
                             <div class="col-md-12 bg-white" style="border-radius:3px;box-shadow:rgba(0, 0, 0, 0.03) 0px 4px 8px 0px">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="inputEmail4">Nomor Induk Pengajar</label>
-                                        <input autocomplete="off" required type="text" maxlength="8" name="nip" class="form-control">
+                                        <input autocomplete="off" required type="text" maxlength="8" name="nip" class="form-control"
+                                        @if(isset($guru)) value="{{$guru->nip}}" readonly @endif>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="inputEmail4">Nama Guru</label>
-                                        <input autocomplete="off" required type="text"  name="nama" class="form-control">
+                                        <input autocomplete="off" required type="text"  name="nama" class="form-control"
+                                        @if(isset($guru)) value="{{$guru->nama}}" @endif>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="inputEmail4">Alamat Guru</label>
-                                        <input autocomplete="off" required type="text"  name="alamat" class="form-control">
+                                        <input autocomplete="off" required type="text"  name="alamat" class="form-control"
+                                        @if(isset($guru)) value="{{$guru->alamat}}" @endif>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="inputEmail4">Email Guru</label>
-                                        <input autocomplete="off" required type="text"  name="email" class="form-control">
+                                        <input autocomplete="off" required type="text"  name="email" class="form-control"
+                                        @if(isset($guru)) value="{{$guru->email}}" @endif>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-block btn-success">Tambah Guru</button>
+                                <button type="submit" class="btn btn-block btn-success">
+                                @if(isset($guru)) Edit Guru @else Tambah Guru @endif</button>
                             </div>
                         </form>
                     </div>

@@ -30,48 +30,62 @@
                 <div class="card card-success">
                     <div class="col-md-12 text-center">
                         <p class="registration-title font-weight-bold display-4 mt-4" style="color:black; font-size: 50px;">
-                            Tambah Siswa</p>
+                            @if(isset($siswa))
+                            Edit Siswa
+                            @else
+                            Tambah Siswa
+                            @endif
+                        </p>
                         <hr>
                     </div>
                     <div id="detail" class="card-body">
-                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.tambah_siswa') }}">
-                            <div class="col-md-12 bg-white" style="border-radius:3px;box-shadow:rgba(0, 0, 0, 0.03) 0px 4px 8px 0px">
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="inputEmail4">Nomor Induk Siswa</label>
-                                        <input autocomplete="off" required type="text" maxlength="8" id="nis" name="nis" class="form-control">
+                        @if(isset($siswa))
+                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.edit_siswa') }}">
+                            @else
+                            <form method="post" enctype="multipart/form-data" action="{{ route('admin.tambah_siswa') }}">
+                                @endif
+
+
+                                <div class="col-md-12 bg-white" style="border-radius:3px;box-shadow:rgba(0, 0, 0, 0.03) 0px 4px 8px 0px">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputEmail4">Nomor Induk Siswa</label>
+                                            <input autocomplete="off" required type="text" maxlength="8" id="nis" name="nis" class="form-control" @if(isset($siswa)) value="{{$siswa->nis}}" readonly @endif>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="inputEmail4">Nama Siswa</label>
+                                            <input autocomplete="off" required type="text" id="namasiswa" name="nama" class="form-control"  @if(isset($siswa)) value="{{$siswa->nama}}" @endif>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="inputEmail4">Alamat Siswa</label>
+                                            <input autocomplete="off" required type="text" id="alamatsiswa" name="alamat" class="form-control" @if(isset($siswa)) value="{{$siswa->alamat}}" @endif>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="inputEmail4">Email Siswa</label>
+                                            <input autocomplete="off" required type="text" id="emailsiswa" name="email" class="form-control" @if(isset($siswa)) value="{{$siswa->email}}" @endif>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="inputEmail4">Nama Siswa</label>
-                                        <input autocomplete="off" required type="text" id="namasiswa" name="nama" class="form-control">
+                                    <div class="form-group">
+                                        <label for="inputState">Kelas</label>
+                                        <select required id="inputState" name="id_kelas" class="form-control">
+                                            @foreach($semuaKelas as $kelas)
+                                            <option value="{{ $kelas->id_kelas }}">{{ $kelas->nama }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="inputEmail4">Alamat Siswa</label>
-                                        <input autocomplete="off" required type="text" id="alamatsiswa" name="alamat" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="inputEmail4">Email Siswa</label>
-                                        <input autocomplete="off" required type="text" id="emailsiswa" name="email" class="form-control">
-                                    </div>
+                                    <button type="submit" class="btn btn-block btn-success">
+                                        @if(isset($siswa))
+                                        Edit Siswa @else Tambah Siswa
+                                        @endif</button>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputState">Kelas</label>
-                                    <select required id="inputState" name="id_kelas" class="form-control">
-                                        @foreach($semuaKelas as $kelas)
-                                        <option value="{{ $kelas->id_kelas }}">{{ $kelas->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-block btn-success">Tambah Siswa</button>
-                            </div>
-                        </form>
+                            </form>
                     </div>
                 </div>
                 <br>
             </div>
         </section>
     </div>
-    
+
     @if(Session::has("alert"))
     <script>
         Swal.fire({

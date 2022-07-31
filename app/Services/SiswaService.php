@@ -36,6 +36,10 @@ class SiswaService
         return Siswa::all();
     }
 
+    public function update(Siswa $siswa){
+        return $siswa->update();
+    }
+
     public function delete(string $nis)
     {
         return Siswa::where("nis", "=", $nis)->delete();

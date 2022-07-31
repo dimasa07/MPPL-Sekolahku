@@ -54,7 +54,7 @@
                                         <td>{{ $jadwal->nama_mapel }}</td>
                                         <td>{{ $jadwal->waktu }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.edit_jadwal', ['id_jadwal'=>$jadwal->id_jadwal]) }}" class="btn btn-info">Update</a>
+                                            <a href="{{ route('admin.edit_jadwal', ['id_jadwal'=>$jadwal->id_jadwal, 'id_kelas'=>$id_kelas]) }}" class="btn btn-info">Update</a>
                                             <a href="{{ route('admin.hapus_jadwal', ['id_jadwal'=>$jadwal->id_jadwal,'id_kelas'=>$id_kelas]) }}" class="btn btn-danger remove" onclick="javascript: return confirm('Yakin hapus? Nama Mapel: {{ $jadwal->nama_mapel }} ');">Hapus</a>
                                         </td>
                                     </tr>

@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <h2 class="card-title" style="color: black;">Manajemen Data Mata Pelajaran</h2>
                     <hr>
-                    <a href="{{ route('admin.tambah_mapel',['id_kelas'=>$id_kelas]) }}" class="btn btn-success">Tambah Mata Pelajaran</a>
+                    <a href="{{ route('admin.tambah_mapel') }}" class="btn btn-success">Tambah Mata Pelajaran</a>
                 </div>
             </div>
             <div class="row">
@@ -52,7 +52,6 @@
                                     <tr>
                                         <td>{{ $mapel->nama }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.edit_mapel', ['id_mapel'=>$mapel->id_mapel]) }}" class="btn btn-info">Update</a>
                                             <a href="{{ route('admin.hapus_mapel', ['id_mapel'=>$mapel->id_mapel]) }}" class="btn btn-danger remove" onclick="javascript: return confirm('Yakin hapus? Nama Mata Pelajaran: {{ $mapel->nama }}');">Hapus</a>
                                         </td>
                                     </tr>

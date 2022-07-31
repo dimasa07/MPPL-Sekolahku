@@ -66,7 +66,8 @@ Route::prefix("/admin")->controller(AdminController::class)->group(function () {
     Route::get('/tambah-siswa', "tambahSiswa")->name("admin.tambah_siswa");
     Route::post('/tambah-siswa', "tambahSiswa")->name("admin.tambah_siswa");
     Route::get('/detail-siswa', "detailSiswa")->name("admin.detail_siswa");
-    Route::get('/edit-siswa', "updateSiswa")->name("admin.edit_siswa");
+    Route::get('/edit-siswa', "editSiswa")->name("admin.edit_siswa");
+    Route::post('/edit-siswa', "editSiswa")->name("admin.edit_siswa");
     Route::get('/hapus-siswa', "hapusSiswa")->name("admin.hapus_siswa");
     // Guru
     Route::get('/data-guru', "dataGuru")->name("admin.data_guru");
@@ -74,6 +75,7 @@ Route::prefix("/admin")->controller(AdminController::class)->group(function () {
     Route::get('/tambah-guru', "tambahGuru")->name("admin.tambah_guru");
     Route::post('/tambah-guru', "tambahGuru")->name("admin.tambah_guru");
     Route::get('/edit-guru', "editGuru")->name("admin.edit_guru");
+    Route::post('/edit-guru', "editGuru")->name("admin.edit_guru");
     Route::get('/hapus-guru', "hapusGuru")->name("admin.hapus_guru");
     // Kelas
     Route::get('/data-kelas', "dataKelas")->name("admin.data_kelas");
@@ -81,6 +83,7 @@ Route::prefix("/admin")->controller(AdminController::class)->group(function () {
     Route::get('/tambah-kelas', "tambahKelas")->name("admin.tambah_kelas");
     Route::post('/tambah-kelas', "tambahKelas")->name("admin.tambah_kelas");
     Route::get('/edit-kelas', "editKelas")->name("admin.edit_kelas");
+    Route::post('/edit-kelas', "editKelas")->name("admin.edit_kelas");
     Route::get('/hapus-kelas', "hapusKelas")->name("admin.hapus_kelas");
     // Mapel
     Route::get('/data-mapel', "dataMapel")->name("admin.data_mapel");
@@ -98,6 +101,7 @@ Route::prefix("/admin")->controller(AdminController::class)->group(function () {
     Route::get('/tambah-jadwal', "tambahJadwal")->name("admin.tambah_jadwal");
     Route::post('/tambah-jadwal', "tambahJadwal")->name("admin.tambah_jadwal");
     Route::get('/edit-jadwal', "editJadwal")->name("admin.edit_jadwal");
+    Route::post('/edit-jadwal', "editJadwal")->name("admin.edit_jadwal");
     Route::get('/hapus-jadwal', "hapusJadwal")->name("admin.hapus_jadwal");
 
     Route::get('/test', "test")->name("admin.test");

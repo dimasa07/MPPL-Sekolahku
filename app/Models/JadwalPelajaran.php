@@ -18,6 +18,6 @@ class JadwalPelajaran extends Model
     public string $nama_mapel;
 
     protected $fillable = [
-        "tanggal"
+        "waktu"
     ];
 }

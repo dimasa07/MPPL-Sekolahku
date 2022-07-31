@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Tambah Jadwal </title>
+    <title>@if(isset($jadwal)) Edit Jadwal @else Tambah Jadwal @endif </title>
     <!-- General CSS Files -->
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
@@ -30,29 +30,47 @@
                 <div class="card card-success">
                     <div class="col-md-12 text-center">
                         <p class="registration-title font-weight-bold display-4 mt-4" style="color:black; font-size: 50px;">
-                            Tambah Jadwal</p>
+                        @if(isset($jadwal)) Edit Jadwal @else Tambah Jadwal @endif</p>
                         <hr>
                     </div>
                     <div id="detail" class="card-body">
+                    @if(isset($jadwal))
+                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.edit_jadwal') }}">
+                    @else 
                         <form method="post" enctype="multipart/form-data" action="{{ route('admin.tambah_jadwal') }}">
+                    @endif
                             <div class="col-md-12 bg-white" style="border-radius:3px;box-shadow:rgba(0, 0, 0, 0.03) 0px 4px 8px 0px">
 
                                 <div class="form-group">
                                     <label for="inputState">Mata Pelajaran</label>
+                                    @if(isset($jadwal))
+                                    <select required id="inputState" name="id_mapel" class="form-control">
+                                  
+                                        <option value="{{$jadwal->id_mapel}}">{{$nama_mapel}}</option>
+                                        
+                                    </select>
+                                    @else
                                     <select required id="inputState" name="id_mapel" class="form-control">
                                         @foreach($mapels as $mapel)
                                         <option value="{{ $mapel->id_mapel }}">{{ $mapel->nama }}</option>
                                         @endforeach
                                     </select>
+                                    @endif
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="inputEmail4">Waktu</label>
-                                        <input autocomplete="off" required type="text" name="waktu" class="form-control">
+                                        <input autocomplete="off" required type="text" name="waktu" class="form-control"
+                                        @if(isset($jadwal)) value="{{$jadwal->waktu}}" @endif>
                                     </div>
                                 </div>
                                 <input type="hidden" value="{{ $id_kelas }}" name="id_kelas">
-                                <button type="submit" class="btn btn-block btn-success">Tambah Jadwal</button>
+                                @if(isset($jadwal))
+                                
+                                <input type="hidden" value="{{ $jadwal->id_jadwal }}" name="id_jadwal">
+                                @endif
+                                <button type="submit" class="btn btn-block btn-success">
+                                @if(isset($jadwal)) Edit Jadwal @else Tambah Jadwal @endif</button>
                             </div>
                         </form>
                     </div>
