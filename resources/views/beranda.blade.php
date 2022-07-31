@@ -53,7 +53,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('beranda') }}">Beranda</a></li>  
+                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('beranda') }}">Beranda</a></li>
                             </li>
                             <li class="nav-item submenu dropdown" id="navpelajaran">
                                 <a href="{{ route('pelajaran') }}" class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Pelajaran</a>
@@ -237,7 +237,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title text-dark font-weight-bold" style="color:#212529 !important;" id="exampleModalCenterTitle">
-                        Learnify - Masuk Sekarang</h2>
+                        Learnify - Login Siswa</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -250,36 +250,18 @@
                                 <img src="{{ asset('/img/modal-login-2.png') }}" class="img-fluid img-responsive mx-auto " style="height: 350px;">
                             </div>
                             <div class=" col-md-6">
-                                <form action="{{ route('login.validasilogin') }}" method="post">
+                                <form action="{{ route('siswa.login') }}" method="post">
                                     <div class="form-group">
-                                        <label class="label-font" for="
-                                        exampleFormControlInput1">
-                                            Email</label>
-                                        <input type="text" value="{{ $email }}" class="form-control" name="email" autocomplete="off" id="email" placeholder="Masukan email mu disini ..">
+                                        <label class="label-font" for="exampleFormControlInput1">Username</label>
+                                        <input type="text" class="form-control" name="username" autocomplete="off" id="username">
                                         <small class="text-danger"></small>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label-font" for="
-                                        exampleFormControlInput1">
-                                            Password</label>
-                                        <input type="password" name="password" class="form-control" id="password" placeholder="Masukan password mu disini ..">
+                                        <label class="label-font" for="exampleFormControlInput1">Password</label>
+                                        <input type="password" name="password" class="form-control" id="password">
                                         <small class="text-danger"></small>
                                     </div>
-                                    <div class="form-check mt-2">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Ingat saya.
-                                        </label>
-                                    </div>
-                                    <p class="terms">Dengan login anda
-                                        menyetujui
-                                        <i>privasi dan persyaratan ketentuan
-                                            hukum kami </i> .
-                                        belum punya akun? daftar <a href="{{ route('siswa.daftar') }}">
-                                            disini.</a>
-                                    </p>
-                                    <button class="btn btn-block font-weight-bold" style="background-color: #4dbf1c;color:white;font-size:18px;">Login
-                                        Sekarang!</button>
+                                    <button class="btn btn-block font-weight-bold" style="background-color: #4dbf1c;color:white;font-size:18px;">Login</button>
                                 </form>
                             </div>
                         </div>
@@ -290,134 +272,17 @@
     </div>
     <!-- End Login Modal -->
 
-
-    <!-- Sweetaler Flashdata -->
-    <?php //if ($this->session->flashdata('success-reg')) : 
-    ?>
+    @if(Session::has("alert"))
     <script>
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Kamu berhasil daftar!',
-        //     text: 'Sekarang kamu boleh login!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
+        Swal.fire({
+            icon: "{{ Session::get('icon') }}",
+            title: "{{ Session::get('title') }}",
+            text: "{{ Session::get('text') }}",
+            showConfirmButton: false,
+            timer: 3500
+        })
     </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('login-success')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Kamu berhasil daftar!',
-        //     text: 'Sekarang login yuk!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('success-verify')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Email Telah Diverifikasi!',
-        //     text: 'Sekarang login yuk!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('success-logout')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Kamu berhasil logout!',
-        //     text: 'Selamat tinggal, Sampai jumpa lagi!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('fail-login')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Gagal login!',
-        //     text: 'Silahkan Periksa Kembali Email dan Password Kamu!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // });
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('fail-email')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Email Belum Diverifikasi!',
-        //     text: 'Silahkan Cek Email Kamu Dahulu!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('fail-pass')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Password Salah!',
-        //     text: 'Silahkan Periksa Kembali Password Kamu!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // });
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('not-login')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Harap Login Terlebih Dahulu !',
-        //     text: 'Silahkan Login Dahulu !',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // });
-    </script>
-    <?php //endif; 
-    ?>
-
-    <?php //if ($this->session->flashdata('false-login')) : 
-    ?>
-    <script>
-        // $("#exampleModalCenter").modal("show")
-    </script>
-    <?php //endif; 
-    ?>
+    @endif
 
     <script src="{{ asset('/js/stellar.js') }}"></script>
     <script src="{{ asset('/vendors/lightbox/simpleLightbox.min.js') }}"></script>

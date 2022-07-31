@@ -37,18 +37,36 @@ class AdminController extends Controller
         $this->jadwalPelajaranService = $jadwalPelajaranService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view("/admin.index");
+        if ($request->session()->exists("admin")) {
+            return view("/admin.index");
+        }
+        return redirect(route("admin.login"));
     }
 
-    public function login()
+    public function login(Request $request)
     {
+        $username = $request->input("username");
+        $password = $request->input("password");
+        if ($request->input("login") == "login") {
+            if ($username == "admin" && $password == "admin") {
+                $request->session()->put("admin", "admin");
+                return redirect(route("admin"));
+            } else {
+                Session::flash("alert", "");
+                Session::flash("icon", "warning");
+                Session::flash("title", "Login Gagal");
+                Session::flash("text", "Username dan Password tidak sesuai");
+            }
+        }
         return view("/admin.login");
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
+        $request->session()->forget("admin");
+        return redirect("/");
     }
 
     public function dataSiswa(Request $request)
@@ -205,7 +223,7 @@ class AdminController extends Controller
                 $jadwal = new JadwalPelajaran();
                 $jadwal->id_kelas = $id_kelas;
                 $jadwal->id_mapel = $id_mapel;
-                $jadwal->waktu = $request->input("waktu");
+                $jadwal->waktu = $request->input("hari") . "(" . $request->string("waktu") . ")";
                 $hasil = $this->jadwalPelajaranService->tambah($jadwal);
                 if ($hasil != null) {
                     $icon =  "success";

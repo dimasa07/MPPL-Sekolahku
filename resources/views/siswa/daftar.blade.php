@@ -90,15 +90,15 @@
                     <div class="bodymovin" data-icon="{{ asset('/json/registration-animation.json') }}"></div>
                 </div>
                 <div class="col-md-6 mx-auto my-auto mt--5">
-                    <form action="{{ route('siswa.daftar.submit') }}" method="post">
+                    <form action="{{ route('siswa.daftar') }}" method="post">
                         <div class="form-group">
-                            <label for="nama_lengkap" class="label-font-register">Nama lengkap</label>
-                            <input type="text" autocomplete="off" class="form-control effect-9" name="nama" id="nama_lengkap">
+                            <label for="nis" class="label-font-register">Nomor Induk Siswa</label>
+                            <input type="text" length="8" autocomplete="off" class="form-control effect-9" name="nis" id="nis">
 
                         </div>
                         <div class="form-group">
-                            <label for="email" class="label-font-register">Email</label>
-                            <input type="text" class="form-control" name="email" id="email">
+                            <label for="username" class="label-font-register">Username</label>
+                            <input type="text" class="form-control" name="username" id="username">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -107,7 +107,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="retype_password" class="label-font-register">Retype password</label>
-                                <input type="password" class="form-control" name="retype_password" id="retype_password">
+                                <input type="password" class="form-control" name="re-password" id="retype_password">
                             </div>
                         </div>
                         <div class="form-check">
@@ -220,134 +220,17 @@
     </div>
     <!-- End Login Modal -->
 
-
-    <!-- Sweetaler Flashdata -->
-    <?php //if ($this->session->flashdata('success-reg')) : 
-    ?>
+    @if(Session::has("alert"))
     <script>
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Kamu berhasil daftar!',
-        //     text: 'Sekarang kamu boleh login!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
+        Swal.fire({
+            icon: "{{ Session::get('icon') }}",
+            title: "{{ Session::get('title') }}",
+            text: "{{ Session::get('text') }}",
+            showConfirmButton: false,
+            timer: 3500
+        })
     </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('login-success')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Kamu berhasil daftar!',
-        //     text: 'Sekarang login yuk!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('success-verify')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Email Telah Diverifikasi!',
-        //     text: 'Sekarang login yuk!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('success-logout')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Kamu berhasil logout!',
-        //     text: 'Selamat tinggal, Sampai jumpa lagi!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('fail-login')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Gagal login!',
-        //     text: 'Silahkan Periksa Kembali Email dan Password Kamu!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // });
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('fail-email')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Email Belum Diverifikasi!',
-        //     text: 'Silahkan Cek Email Kamu Dahulu!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // })
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('fail-pass')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Password Salah!',
-        //     text: 'Silahkan Periksa Kembali Password Kamu!',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // });
-    </script>
-    <?php //endif; 
-    ?>
-
-
-    <?php //if ($this->session->flashdata('not-login')) : 
-    ?>
-    <script>
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Harap Login Terlebih Dahulu !',
-        //     text: 'Silahkan Login Dahulu !',
-        //     showConfirmButton: false,
-        //     timer: 2500
-        // });
-    </script>
-    <?php //endif; 
-    ?>
-
-    <?php //if ($this->session->flashdata('false-login')) : 
-    ?>
-    <script>
-        // $("#exampleModalCenter").modal("show")
-    </script>
-    <?php //endif; 
-    ?>
+    @endif
 
     <script src="{{ asset('/js/stellar.js') }}"></script>
     <script src="{{ asset('/vendors/lightbox/simpleLightbox.min.js') }}"></script>

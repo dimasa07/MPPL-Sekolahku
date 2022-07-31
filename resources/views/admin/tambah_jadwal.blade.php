@@ -30,49 +30,59 @@
                 <div class="card card-success">
                     <div class="col-md-12 text-center">
                         <p class="registration-title font-weight-bold display-4 mt-4" style="color:black; font-size: 50px;">
-                        @if(isset($jadwal)) Edit Jadwal @else Tambah Jadwal @endif</p>
+                            @if(isset($jadwal)) Edit Jadwal @else Tambah Jadwal @endif</p>
                         <hr>
                     </div>
                     <div id="detail" class="card-body">
-                    @if(isset($jadwal))
+                        @if(isset($jadwal))
                         <form method="post" enctype="multipart/form-data" action="{{ route('admin.edit_jadwal') }}">
-                    @else 
-                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.tambah_jadwal') }}">
-                    @endif
-                            <div class="col-md-12 bg-white" style="border-radius:3px;box-shadow:rgba(0, 0, 0, 0.03) 0px 4px 8px 0px">
-
-                                <div class="form-group">
-                                    <label for="inputState">Mata Pelajaran</label>
-                                    @if(isset($jadwal))
-                                    <select required id="inputState" name="id_mapel" class="form-control">
-                                  
-                                        <option value="{{$jadwal->id_mapel}}">{{$nama_mapel}}</option>
-                                        
-                                    </select>
-                                    @else
-                                    <select required id="inputState" name="id_mapel" class="form-control">
-                                        @foreach($mapels as $mapel)
-                                        <option value="{{ $mapel->id_mapel }}">{{ $mapel->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                    @endif
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="inputEmail4">Waktu</label>
-                                        <input autocomplete="off" required type="text" name="waktu" class="form-control"
-                                        @if(isset($jadwal)) value="{{$jadwal->waktu}}" @endif>
-                                    </div>
-                                </div>
-                                <input type="hidden" value="{{ $id_kelas }}" name="id_kelas">
-                                @if(isset($jadwal))
-                                
-                                <input type="hidden" value="{{ $jadwal->id_jadwal }}" name="id_jadwal">
+                            @else
+                            <form method="post" enctype="multipart/form-data" action="{{ route('admin.tambah_jadwal') }}">
                                 @endif
-                                <button type="submit" class="btn btn-block btn-success">
-                                @if(isset($jadwal)) Edit Jadwal @else Tambah Jadwal @endif</button>
-                            </div>
-                        </form>
+                                <div class="col-md-12 bg-white" style="border-radius:3px;box-shadow:rgba(0, 0, 0, 0.03) 0px 4px 8px 0px">
+
+                                    <div class="form-group">
+                                        <label for="inputState">Mata Pelajaran</label>
+                                        @if(isset($jadwal))
+                                        <select required id="inputState" name="id_mapel" class="form-control">
+
+                                            <option value="{{$jadwal->id_mapel}}">{{$nama_mapel}}</option>
+
+                                        </select>
+                                        @else
+                                        <select required id="inputState" name="id_mapel" class="form-control">
+                                            @foreach($mapels as $mapel)
+                                            <option value="{{ $mapel->id_mapel }}">{{ $mapel->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                        @endif
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputEmail4">Hari</label>
+                                            <select required id="inputState" name="hari" class="form-control">
+                                                <option value="Senin">Senin</option>
+                                                <option value="Selasa">Selasa</option>
+                                                <option value="Rabu">Rabu</option>
+                                                <option value="Kamis">Kamis</option>
+                                                <option value="Jumat">Jumat</option>
+                                                <option value="Sabtu">Sabtu</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="inputEmail4">Waktu</label>
+                                            <input autocomplete="off" value="00:00" required type="time" name="waktu" class="form-control">
+                                        </div>
+                                    </div>
+                                    <input type="hidden" value="{{ $id_kelas }}" name="id_kelas">
+                                    @if(isset($jadwal))
+
+                                    <input type="hidden" value="{{ $jadwal->id_jadwal }}" name="id_jadwal">
+                                    @endif
+                                    <button type="submit" class="btn btn-block btn-success">
+                                        @if(isset($jadwal)) Edit Jadwal @else Tambah Jadwal @endif</button>
+                                </div>
+                            </form>
                     </div>
                 </div>
                 <br>

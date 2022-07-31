@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Middleware\AdminMiddleware;
 use App\Models\JadwalPelajaran;
 use App\Models\Kelas;
 use App\Models\Mapel;
@@ -43,10 +44,11 @@ Route::prefix("/guru")->controller(GuruController::class)->group(function () {
 
 
 // SISWA
-Route::prefix("/siswa")->controller(SiswaController::class)->group(function () {
+Route::get('/siswa/daftar', [SiswaController::class, "daftar"])->name("siswa.daftar");
+Route::post('/siswa/daftar', [SiswaController::class, "daftar"])->name("siswa.daftar");
+Route::post("/siswa/login", [SiswaController::class, "login"])->name("siswa.login");
+Route::prefix("/siswa")->controller(SiswaController::class)->middleware('siswa')->group(function () {
     Route::get('/', "index")->name("siswa");
-    Route::post("/login", "login")->name("siswa.login");
-    Route::post('/daftar', "daftar")->name("siswa.daftar");
     Route::get('/daftar/submit', "submitPendaftaran")->name("siswa.daftar.submit");
     Route::get('/kelas10', "kelas10")->name("siswa.kelas10");
     Route::get('/kelas11', "kelas11")->name("siswa.kelas11");
@@ -57,9 +59,10 @@ Route::prefix("/siswa")->controller(SiswaController::class)->group(function () {
 
 
 // ADMIN
-Route::prefix("/admin")->controller(AdminController::class)->group(function () {
+Route::get('/admin/login', [AdminController::class, "login"])->name("admin.login");
+Route::post('/admin/login', [AdminController::class, "login"])->name("admin.login");
+Route::prefix("/admin")->controller(AdminController::class)->middleware('admin')->group(function () {
     Route::get('/', "index")->name("admin");
-    Route::get('/login', "login")->name("admin.login");
     Route::get('/logout', "logout")->name("admin.logout");
     // Siswa
     Route::get('/data-siswa', "dataSiswa")->name("admin.data_siswa");
