@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Learnify -  Tambah Materi</title>
+    <title>OnSchool -  Tambah Materi</title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -269,7 +269,7 @@
                                                 Tambah data materi
                                             </div>
                                             <div class="kt-notification__item-time">
-                                                Tambah Materi Learnify
+                                                Tambah Materi OnSchool
                                             </div>
                                         </div>
                                     </a>

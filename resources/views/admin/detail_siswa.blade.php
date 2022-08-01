@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Detail Siswa - Learnify</title>
+    <title>Detail Siswa - OnSchool</title>
 
     <!-- General CSS Files -->
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">

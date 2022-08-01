@@ -33,10 +33,12 @@ Route::controller(BerandaController::class)->group(function () {
 
 
 // GURU
-Route::prefix("/guru")->controller(GuruController::class)->group(function () {
+Route::get('/guru/login', [GuruController::class, "login"])->name("guru.login");
+Route::post('/guru/login', [GuruController::class, "login"])->name("guru.login");
+Route::get('/guru/daftar', [GuruController::class, "daftar"])->name("guru.daftar");
+Route::post('/guru/daftar', [GuruController::class, "daftar"])->name("guru0.daftar");
+Route::prefix("/guru")->controller(GuruController::class)->middleware("guru")->group(function () {
     Route::get('/', "index")->name("guru");
-    Route::get('/login', "login")->name("guru.login");
-    Route::get('/daftar', "daftar")->name("guru.daftar");
     Route::get('/tambah-materi', "tambahMateri")->name("guru.tambah_materi");
     Route::get('/absensi-siswa', "absensiSiswa")->name("guru.absensi_siswa");
     Route::get('/logout', "logout")->name("guru.logout");

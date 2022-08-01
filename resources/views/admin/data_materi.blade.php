@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Data Materi - Learnify</title>
+    <title>Data Materi - OnSchool</title>
 
     <!-- General CSS Files -->
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
@@ -32,7 +32,7 @@
         <section class="section">
             <div class="card" style="width:100%;">
                 <div class="card-body">
-                    <h2 class="card-title" style="color: black;">Management Data Materi Learnify</h2>
+                    <h2 class="card-title" style="color: black;">Management Data Materi OnSchool</h2>
                     <hr>
                     <p class="card-text"> After I ran into Helen at a restaurant, I realized she was just office pretty drop-dead date put in in a deck for our standup today. Who's responsible for the ask for this request? who's responsible for the ask for this request? but moving the goalposts gain traction.</p>
                     <a href="{{ route('admin.tambah_materi') }}" class="btn btn-success">Tambah

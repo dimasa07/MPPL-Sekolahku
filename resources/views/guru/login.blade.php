@@ -1,13 +1,13 @@
 <!--
-@Project: Learnify
+@Project: OnSchool
 @Programmer: Syauqi Zaidan Khairan Khalaf
 @Website: https://linktr.ee/syauqi
 @Email : syaokay@gmail.com
 
-@About-Learnify :
+@About-OnSchool :
 Web Edukasi Open Source yang dibuat oleh Syauqi Zaidan Khairan Khalaf.
-Learnify adalah Web edukasi yang dilengkapi video, materi dan sistem ujian
-yang tersedia secara gratis. Learnify dibuat ditujukan agar para siswa dan
+OnSchool adalah Web edukasi yang dilengkapi video, materi dan sistem ujian
+yang tersedia secara gratis. OnSchool dibuat ditujukan agar para siswa dan
 guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
 -->
 
@@ -42,16 +42,17 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                 <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
                     <div class="p-4 m-3">
                         <a href="{{ route('beranda') }}"> <img src="{{ asset('/img/logo.png') }}" alt="logo" width="150" class=" mb-5 mt-2"></a>
-                        <h4 class="text-dark font-weight-normal">Selamat datang di <span class="font-weight-bold">Learnify</span>
+                        <h4 class="text-dark font-weight-normal">Selamat datang di <span class="font-weight-bold">OnSchool</span>
                         </h4>
                         <p class="text-muted">Sebelum masuk ke halaman guru, anda harus login terlebih dahulu sebagai
                             guru. silahkan isi data dibawah untuk melanjutkan.</p>
-                        <form method="post" action="{{ route('guru') }}" class="needs-validation" novalidate="">
+                        <form method="post" action="{{ route('guru.login') }}" class="needs-validation" novalidate="">
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                                <label for="username">Username</label>
+                                <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus>
+                                <input type="hidden" name="login" value="login">
                                 <div class="invalid-feedback">
-                                    Harap isi bidang email
+                                    Harap isi bidang Username
                                 </div>
                             </div>
                             <div class="form-group">
@@ -70,6 +71,11 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                 </button>
                             </div>
                         </form>
+                        <a href="{{ route('guru.daftar') }}">
+                            <button class="btn btn-block btn-info btn-lg btn-icon icon-right" tabindex="4">
+                                Daftar
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="{{ asset('/stisla-assets/img/unsplash/ss.jpg') }}">
@@ -88,7 +94,17 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
             </div>
         </section>
     </div>
-
+    @if(Session::has("alert"))
+    <script>
+        Swal.fire({
+            icon: "{{ Session::get('icon') }}",
+            title: "{{ Session::get('title') }}",
+            text: "{{ Session::get('text') }}",
+            showConfirmButton: false,
+            timer: 2500
+        })
+    </script>
+    @endif
 
     <!-- General JS Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

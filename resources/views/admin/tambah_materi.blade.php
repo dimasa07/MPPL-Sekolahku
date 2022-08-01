@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Tambah Data Materi - Learnify </title>
+    <title>Tambah Data Materi - OnSchool </title>
     <!-- General CSS Files -->
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
     <!-- Title -->
-    <title>Selamat datang - Siswa - Learnify Student Page</title>
+    <title>Selamat datang - Siswa - OnSchool Student Page</title>
     <!-- Bootstrap CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
@@ -70,13 +70,13 @@
             <div class="row" style="color: black; font-family: 'poppins';">
                 <div class="col-md-12 mt-1">
                     <h1 class="display-4" style="color: black; font-family:'poppins';" data-aos="fade-down" data-aos-duration="1400">Selamat Datang
-                        di Learnify <span style="font-size: 40px;">👋🏻
+                        di OnSchool <span style="font-size: 40px;">👋🏻
                         </span> </h1>
-                    <p>Hello Students! , Ini merupakan halaman utama learnify ! Silahkan pilih kelas yang akan kamu
+                    <p>Hello Students! , Ini merupakan halaman utama OnSchool ! Silahkan pilih kelas yang akan kamu
                         akses
                         dan pilih mata pelajaran yang ingin kamu pelajari. Selamat belajar ya students!</p>
                     <hr>
-                    <h4 style="line-height: 4px;" data-aos="fade-down" data-aos-duration="1700">Siswa - Learnify Students</h3>
+                    <h4 style="line-height: 4px;" data-aos="fade-down" data-aos-duration="1700">Siswa - OnSchool Students</h3>
                         <p data-aos="fade-down" data-aos-duration="1800">Silahkan pilih kelas yang akan kamu akses
                             dibawah
                             ini!
@@ -139,12 +139,11 @@
         <div class="container">
             <div class="">
                 <p class="col-lg-8 col-md-8 footer-text m-0">
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                     
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <span class="text-danger"> &#10084;</span> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </script> All rights reserved |  OnSchool
+                     
                 </p>
             </div>
         </div>
@@ -159,7 +158,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title text-dark font-weight-bold" style="color:#212529 !important;" id="exampleModalCenterTitle">
-                        Learnify - Masuk Sekarang</h2>
+                        OnSchool - Masuk Sekarang</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

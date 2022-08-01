@@ -12,11 +12,11 @@
             <ul class="navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                         <img alt="image" style="margin-bottom:4px !important;" src="{{ asset('/stisla-assets/img/avatar/avatar-2.png') }}" class="rounded-circle mr-1 my-auto border-white">
-                        <div class="d-sm-none d-lg-inline-block" style="font-size:15px;">Admin</div>
+                        <div class="d-sm-none d-lg-inline-block" style="font-size:15px;">Guru</div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-title">OnSchool</div>
-                        <a href="{{ route('admin.logout') }}" class="dropdown-item has-icon text-danger">
+                        <a href="{{ route('guru.logout') }}" class="dropdown-item has-icon text-danger">
                             <i class="fas fa-sign-out-alt"></i>Logout
                         </a>
                     </div>
@@ -38,26 +38,6 @@
                     <li class="menu-header ">Dashboard</li>
                     <li class="nav-item dropdown active">
                         <a href="{{ route('admin') }}" class="nav-link"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-                    </li>
-                    <li class="menu-header">Manajemen Siswa</li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i>
-                            <span>Siswa</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="nav-link" href="{{ route('admin.data_siswa') }}">Data Siswa</a></li>
-                            <li><a class="nav-link" href="{{ route('admin.tambah_siswa') }}">Tambah Siswa</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-header">Manajemen Guru</li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link has-dropdown"><i class="fas fa-chalkboard-teacher"></i>
-                            <span>Guru</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="nav-link" href="{{ route('admin.data_guru') }}">Data Guru</a>
-                            </li>
-                            <li><a class="nav-link" href="{{ route('admin.tambah_guru') }}">Tambah Guru</a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="menu-header">Manajemen Kelas</li>
                     <li class="nav-item dropdown">
@@ -89,6 +69,7 @@
                             </li>
                         </ul>
                     </li>
+                </ul>
             </aside>
         </div>
     </div>

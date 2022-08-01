@@ -16,6 +16,10 @@ class GuruMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if ($request->session()->exists("guru")) {
+            return $next($request);
+        }
+
+        return redirect(route("guru.login"));
     }
 }

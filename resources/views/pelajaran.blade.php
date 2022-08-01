@@ -5,10 +5,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="Learnify dibuat ditujukan agar para siswa dan guru dapat terus belajar dan mengajar dimana saja dan kapan saja." name="Description" />
-    <meta content="Learnify, E-learning, Open Source, Syauqi Zaidan Khairan Khalaf, github, programmer indonesia" name="keywords" />
+    <meta content="OnSchool dibuat ditujukan agar para siswa dan guru dapat terus belajar dan mengajar dimana saja dan kapan saja." name="Description" />
+    <meta content="OnSchool,  OnSchool, Open Source, Syauqi Zaidan Khairan Khalaf, github, programmer indonesia" name="keywords" />
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
-    <title>Sekolahku | E-Learning</title>
+    <title>Sekolahku |  OnSchool</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/vendors/linericon/style.css') }}">
@@ -86,7 +86,7 @@
     <section class="courses_area p_40">
         <div class="container">
             <div class="main_title">
-                <h2 data-aos="fade-up" data-aos-duration="1600">Pelajaran Yang Tersedia di Learnify</h2>
+                <h2 data-aos="fade-up" data-aos-duration="1600">Pelajaran Yang Tersedia di OnSchool</h2>
                 <p data-aos="fade-up" data-aos-duration="1800">Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free.</p>
             </div>
             <div class="row courses_inner">
@@ -186,12 +186,11 @@
         <div class="container">
             <div class="">
                 <p class="col-lg-8 col-md-8 footer-text m-0">
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                     
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <span class="text-danger"> &#10084;</span> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </script> All rights reserved |  OnSchool
+                     
                 </p>
             </div>
         </div>
@@ -206,7 +205,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title text-dark font-weight-bold" style="color:#212529 !important;" id="exampleModalCenterTitle">
-                        Learnify - Masuk Sekarang</h2>
+                        OnSchool - Masuk Sekarang</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

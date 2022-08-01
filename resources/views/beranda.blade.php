@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
-    <title>Sekolahku | E-Learning</title>
+    <title>Sekolahku |  OnSchool</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/vendors/linericon/style.css') }}">
@@ -37,48 +37,7 @@
 
 <body>
 
-    <!--================Header Menu Area =================-->
-    <header class="header_area">
-
-        <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="{{ route('beranda') }}"><img src="{{ asset('/img/logo.png') }}" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('beranda') }}">Beranda</a></li>
-                            </li>
-                            <li class="nav-item submenu dropdown" id="navpelajaran">
-                                <a href="{{ route('pelajaran') }}" class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Pelajaran</a>
-                            </li>
-                            <li class="nav-item" id="navtentang"><a class="nav-link" href="{{ route('tentang') }}">Tentang</a>
-                            <li class="nav-item" id="nav"><a class="nav-link" href="{{ route('siswa.daftar') }}">Daftar</a></li>
-                            <li class="nav-item dropdown">
-                                <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">Masuk
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="#" class="dropdown-item has-icon " data-toggle="modal" data-target="#exampleModalCenter">
-                                        <i class="fas fa-sign-out-alt"></i>Masuk sebagai Siswa
-                                    </a>
-                                    <a href="{{ route('guru.login') }}" class="dropdown-item has-icons">
-                                        <i class="fas fa-sign-out-alt"></i>Masuk sebagai Guru
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <!--================ END Header Menu Area =================-->
+    @include("templates.menu")
 
     <!--================Home Banner Area =================-->
     <section class="home_banner_area">
@@ -87,9 +46,9 @@
             </div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h3 data-aos="fade-up" data-aos-duration="1600">Belajar Dimana Saja & Kapan Saja <br /> Mudah Dengan Learnify</h3>
-                    <p data-aos="fade-up" data-aos-duration="1900">Dengan Learnify kemudahan kegiatan belajar mengajar dapat terpenuhi. Para guru dan siswa dapat
-                        belajar meski banyak halangan atau rintangan. Nikmati Pembelajaran terstruktur dan efektif menggunakan Learnify serta kemudahan belajar dengan menggunakan aplikasi kami. </p>
+                    <h3 data-aos="fade-up" data-aos-duration="1600">Belajar Dimana Saja & Kapan Saja <br /> Mudah Dengan OnSchool</h3>
+                    <p data-aos="fade-up" data-aos-duration="1900">Dengan OnSchool kemudahan kegiatan belajar mengajar dapat terpenuhi. Para guru dan siswa dapat
+                        belajar meski banyak halangan atau rintangan. Nikmati Pembelajaran terstruktur dan efektif menggunakan OnSchool serta kemudahan belajar dengan menggunakan aplikasi kami. </p>
                     <a data-aos="fade-up" data-aos-duration="2000" class="main_btn" href="{{ route('siswa.daftar') }}">Bergabung Sekarang <span class="lnr lnr-arrow-right"></span></a>
                 </div>
             </div>
@@ -102,8 +61,8 @@
     <section class="courses_area p_40">
         <div class="container">
             <div class="main_title">
-                <h2 data-aos="fade-up" data-aos-duration="1600">Pelajaran Yang Tersedia di Learnify</h2>
-                <p data-aos="fade-up" data-aos-duration="1800">Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free.</p>
+                <h2 data-aos="fade-up" data-aos-duration="1600">Pelajaran Yang Tersedia di OnSchool</h2>
+
             </div>
             <div class="row courses_inner">
                 <div class="col-lg-9">
@@ -202,9 +161,8 @@
     <section class="impress_area p_120">
         <div class="container">
             <div class="impress_inner text-center">
-                <h2 data-aos="fade-up" data-aos-duration="1800">LOGIN SEBAGAI GURU DAN UPLOAD MATERI & VIDEO SEKARANG</h2>
-                <p data-aos="fade-up" data-aos-duration="2000">Merciful revaluation burying love ultimate value inexpedient ubermensch. Holiest madness victorious morality hope endless christian madness. Love dead fearful transvaluation marvelous. Oneself right ideal abstract endless faith deceptions zarathustra grandeur law ubermensch free. Abstract chaos snare play truth ultimate good self. God overcome sexuality pious abstract good decieve revaluation aversion good. Virtues chaos overcome society holiest truth.
-                </p>
+                <h2 data-aos="fade-up" data-aos-duration="1800">LOGIN SEBAGAI GURU DAN UPLOAD MATERI SEKARANG</h2>
+
                 <a data-aos="fade-up" data-aos-duration="2200" class="main_btn" href="{{ route('guru.login') }}">Login Sebagai Guru <span class="lnr lnr-arrow-right text-black"></span></a>
             </div>
         </div>
@@ -212,111 +170,4 @@
     <!--================End Impress Area =================-->
 
 
-    <!--================ Start footer Area  =================-->
-    <footer class="footer-area p_20">
-        <div class="container">
-            <div class="">
-                <p class="col-lg-8 col-md-8 footer-text m-0">
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
-                        document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <span class="text-danger"> &#10084;</span> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                </p>
-            </div>
-        </div>
-
-    </footer>
-    <!--================ End footer Area  =================-->
-
-
-    <!-- Start Login Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title text-dark font-weight-bold" style="color:#212529 !important;" id="exampleModalCenterTitle">
-                        Learnify - Login Siswa</h2>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <br>
-                        <div class="row">
-                            <div class="col-md-6 text-center">
-                                <img src="{{ asset('/img/modal-login-2.png') }}" class="img-fluid img-responsive mx-auto " style="height: 350px;">
-                            </div>
-                            <div class=" col-md-6">
-                                <form action="{{ route('siswa.login') }}" method="post">
-                                    <div class="form-group">
-                                        <label class="label-font" for="exampleFormControlInput1">Username</label>
-                                        <input type="text" class="form-control" name="username" autocomplete="off" id="username">
-                                        <small class="text-danger"></small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="label-font" for="exampleFormControlInput1">Password</label>
-                                        <input type="password" name="password" class="form-control" id="password">
-                                        <small class="text-danger"></small>
-                                    </div>
-                                    <button class="btn btn-block font-weight-bold" style="background-color: #4dbf1c;color:white;font-size:18px;">Login</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Login Modal -->
-
-    @if(Session::has("alert"))
-    <script>
-        Swal.fire({
-            icon: "{{ Session::get('icon') }}",
-            title: "{{ Session::get('title') }}",
-            text: "{{ Session::get('text') }}",
-            showConfirmButton: false,
-            timer: 3500
-        })
-    </script>
-    @endif
-
-    <script src="{{ asset('/js/stellar.js') }}"></script>
-    <script src="{{ asset('/vendors/lightbox/simpleLightbox.min.js') }}"></script>
-    <script src="{{ asset('/vendors/nice-select/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('/vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('/vendors/isotope/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('/vendors/popup/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('/js/jquery.ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('/vendors/counter-up/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('/vendors/counter-up/jquery.counterup.js') }}"></script>
-    <script src="{{ asset('/js/mail-script.js') }}"></script>
-    <script src="{{ asset('/js/theme.js') }}"></script>
-    <script>
-        var animateButton = function(e) {
-            e.preventDefault;
-            e.target.classList.remove('animate');
-            e.target.classList.add('animate');
-            setTimeout(function() {
-                e.target.classList.remove('animate');
-            }, 700);
-        };
-
-        var bubblyButtons = document.getElementsByClassName("bubbly-button");
-
-        for (var i = 0; i < bubblyButtons.length; i++) {
-            bubblyButtons[i].addEventListener('click', animateButton, false);
-        }
-    </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-
-</body>
-
-</html>
+    @include("templates.footer")
