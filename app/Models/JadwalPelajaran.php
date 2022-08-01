@@ -16,8 +16,44 @@ class JadwalPelajaran extends Model
 
     public string $nama_kelas;
     public string $nama_mapel;
+    public Guru $guru;
 
     protected $fillable = [
-        "waktu"
+        "waktu",
+        "id_kelas",
+        "id_mapel",
+        "nip"
     ];
+
+   
+
+    public function kelas()
+    {
+        return $this->belongsToMany(
+            Kelas::class,
+            "jadwal_pelajaran",
+            "id_jadwal",
+            "id_kelas"
+        );
+    }
+
+    public function mapel()
+    {
+        return $this->belongsToMany(
+            Mapel::class,
+            "jadwal_pelajaran",
+            "id_jadwal",
+            "id_mapel"
+        );
+    }
+
+    public function siswa()
+    {
+        return $this->belongsToMany(
+            Siswa::class,
+            "kehadiran",
+            "id_jadwal",
+            "nis"
+        );
+    }
 }

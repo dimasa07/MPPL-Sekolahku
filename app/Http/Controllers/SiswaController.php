@@ -24,6 +24,7 @@ class SiswaController extends Controller
     public function index(Request $request)
     {
         if ($request->session()->exists("nis")) {
+            $request->session()->put("nama_siswa", $this->siswaService->getByNis($request->session()->get("nis"))->nama);
             return view("/siswa.index");
         }
         return redirect("/");

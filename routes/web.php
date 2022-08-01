@@ -40,6 +40,14 @@ Route::post('/guru/daftar', [GuruController::class, "daftar"])->name("guru0.daft
 Route::prefix("/guru")->controller(GuruController::class)->middleware("guru")->group(function () {
     Route::get('/', "index")->name("guru");
     Route::get('/tambah-materi', "tambahMateri")->name("guru.tambah_materi");
+    Route::get('/detail-kelas', "detailKelas")->name("guru.detail_kelas");
+    Route::get('/jadwal', "jadwal")->name("guru.jadwal");
+    Route::get('/kehadiran-siswa', "kehadiranSiswa")->name("guru.kehadiran_siswa");
+    Route::get('/kehadiran-siswa/detail', "detailKehadiranSiswa")->name("guru.kehadiran_siswa.detail");
+    Route::get('/kehadiran-siswa/lihat', "lihatKehadiranSiswa")->name("guru.kehadiran_siswa.lihat");
+    Route::get('/kehadiran-siswa/tambah-pertemuan', "tambahPertemuan")->name("guru.kehadiran.tambah_pertemuan");
+    Route::post('/kehadiran-siswa/tambah-pertemuan', "tambahPertemuan")->name("guru.kehadiran.tambah_pertemuan");
+    Route::get('/kehadiran-siswa/hapus-pertemuan', "hapusPertemuan")->name("guru.kehadiran_siswa.hapus");
     Route::get('/absensi-siswa', "absensiSiswa")->name("guru.absensi_siswa");
     Route::get('/logout', "logout")->name("guru.logout");
 });

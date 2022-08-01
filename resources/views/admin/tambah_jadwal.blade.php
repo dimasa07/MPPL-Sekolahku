@@ -44,7 +44,7 @@
                                     <div class="form-group">
                                         <label for="inputState">Mata Pelajaran</label>
                                         @if(isset($jadwal))
-                                        <select required id="inputState" name="id_mapel" class="form-control">
+                                        <select required id="inputState" name="id_mapel" class="form-control" readonly>
 
                                             <option value="{{$jadwal->id_mapel}}">{{$nama_mapel}}</option>
 
@@ -56,6 +56,14 @@
                                             @endforeach
                                         </select>
                                         @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputState">Guru Pengajar</label>
+                                        <select required id="inputState" name="nip" class="form-control">
+                                            @foreach($gurus as $guru)
+                                            <option value="{{ $guru->nip }}">{{ $guru->nama }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">

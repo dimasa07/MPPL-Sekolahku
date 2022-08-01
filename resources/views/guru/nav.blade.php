@@ -12,7 +12,8 @@
             <ul class="navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                         <img alt="image" style="margin-bottom:4px !important;" src="{{ asset('/stisla-assets/img/avatar/avatar-2.png') }}" class="rounded-circle mr-1 my-auto border-white">
-                        <div class="d-sm-none d-lg-inline-block" style="font-size:15px;">Guru</div>
+                        <div class="d-sm-none d-lg-inline-block" style="font-size:15px;">
+                        @if(Session::has("nama")) {{ Session::get("nama") }} @else Guru @endif</div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-title">OnSchool</div>
@@ -44,28 +45,9 @@
                         <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i>
                             <span>Kelas</span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="nav-link" href="{{ route('admin.data_kelas') }}">Data Kelas</a>
+                            <li><a class="nav-link" href="{{ route('guru.jadwal') }}">Jadwal</a>
                             </li>
-                            <li><a class="nav-link" href="{{ route('admin.tambah_kelas') }}">Tambah Kelas</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-header">Manajemen Pelajaran</li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i>
-                            <span>Mata Pelajaran</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="nav-link" href="{{ route('admin.data_mapel') }}">Data Mata Pelajaran</a>
-                            </li>
-                            <li><a class="nav-link" href="{{ route('admin.tambah_mapel') }}">Tambah Mata Pelajaran</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i>
-                            <span>Jadwal Pelajaran</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="nav-link" href="{{ route('admin.data_jadwal') }}">Data Jadwal Pelajaran</a>
+                            <li><a class="nav-link" href="{{ route('guru.kehadiran_siswa') }}">Kehadiran Siswa</a>
                             </li>
                         </ul>
                     </li>

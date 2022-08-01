@@ -27,4 +27,14 @@ class Guru extends Model
     {
         return $this->hasMany(Kelas::class, "nip");
     }
+
+    public function jadwal()
+    {
+        return $this->belongsToMany(
+            JadwalPelajaran::class,
+            "jadwal_pelajaran",
+            "nip",
+            "id_jadwal"
+        );
+    }
 }

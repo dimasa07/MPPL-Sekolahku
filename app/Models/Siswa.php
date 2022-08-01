@@ -55,4 +55,13 @@ class Siswa extends Model
         );
     }
 
+    public function jadwal()
+    {
+        return $this->belongsToMany(
+            JadwalPelajaran::class,
+            "kehadiran",
+            "nis",
+            "id_jadwal"
+        );
+    }
 }

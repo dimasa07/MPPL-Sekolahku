@@ -19,10 +19,6 @@ class KehadiranService
 
     public function tambah(Kehadiran $kehadiran)
     {
-        $mapel = $this->mapelService->getById($kehadiran->id_mapel);
-        if (!is_null($mapel)) {
-            return null;
-        }
 
         return $kehadiran->save();
     }
@@ -32,9 +28,9 @@ class KehadiranService
         return Kehadiran::where("id_kehadiran", "=", $id)->first();
     }
 
-    public function getByMapel(Mapel $mapel)
+    public function getByJadwal(string $id_jadwal)
     {
-        return Kehadiran::where("id_mapel", "=", $mapel->id_mapel)->first();
+        return Kehadiran::where("id_jadwal", "=", $id_jadwal)->get();
     }
 
     public function getAll()

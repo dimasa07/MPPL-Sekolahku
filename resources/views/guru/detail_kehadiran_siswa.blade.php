@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Data Jadwal</title>
+    <title>Kehadiran Siswa</title>
     <!-- General CSS Files -->
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
@@ -23,16 +23,16 @@
 
 <body>
 
-    @include("admin.nav")
+    @include("guru.nav")
 
     <!-- Main Content -->
     <div class="main-content">
         <section class="section">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title" style="color: black;">Jadwal Pelajaran Kelas {{ $nama_kelas }}</h2>
+                    <h2 class="card-title" style="color: black;">Kehadiran Siswa Kelas {{$nama_kelas}} - {{$nama_mapel}}</h2>
+                    <a href="{{ route('guru.kehadiran.tambah_pertemuan') }}" class="btn btn-success">Tambah</a>
                     <hr>
-                    <a href="{{ route('admin.tambah_jadwal', ['id_kelas'=>$id_kelas]) }}" class="btn btn-success">Tambah Jadwal</a>
                 </div>
             </div>
             <div class="row">
@@ -42,25 +42,23 @@
                             <table id="example" class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr class="text-center">
-                                        <th scope="col">Mata Pelajaran</th>
-                                        <th scope="col">Guru Pengajar</th>
-                                        <th scope="col">Waktu</th>
+                                        <th scope="col">Pertemuan ke</th>
                                         <th scope="col">Opsi</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($jadwals as $jadwal)
+                                    @if(isset($kehadiran))
+                                    @foreach ($kehadiran as $k)
                                     <tr>
-                                        <td>{{ $jadwal->nama_mapel }}</td>
-                                        <td>{{ $jadwal->guru->nama }}</td>
-                                        <td>{{ $jadwal->waktu }}</td>
+                                        <td>{{ $k->pertemuan_ke }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.edit_jadwal', ['id_jadwal'=>$jadwal->id_jadwal, 'id_kelas'=>$id_kelas]) }}" class="btn btn-info">Update</a>
-                                            <a href="{{ route('admin.hapus_jadwal', ['id_jadwal'=>$jadwal->id_jadwal,'id_kelas'=>$id_kelas]) }}" class="btn btn-danger remove" onclick="javascript: return confirm('Yakin hapus? Nama Mapel: {{ $jadwal->nama_mapel }} ');">Hapus</a>
+                                        <a href="{{ route('guru.kehadiran_siswa.hapus', ['pertemuan_ke'=>$k->pertemuan_ke]) }}" class="btn btn-danger remove" onclick="javascript: return confirm('Yakin hapus? Pertemuan ke : {{$k->pertemuan_ke}}');">Hapus</a>
+                                            <a href="{{ route('guru.kehadiran_siswa.lihat', ['pertemuan_ke'=>$k->pertemuan_ke]) }}" class="btn btn-success">Lihat</a>
                                         </td>
                                     </tr>
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -82,4 +80,4 @@
     @endif
     <!-- End Main Content -->
 
-    @include("admin.footer")
+    @include("guru.footer")

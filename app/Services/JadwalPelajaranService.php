@@ -28,6 +28,11 @@ class JadwalPelajaranService
         return JadwalPelajaran::where("id_kelas", "=", $id_kelas)->get();
     }
 
+    public function getByGuru(string $nip)
+    {
+        return JadwalPelajaran::where("nip", "=", $nip)->get();
+    }
+
     public function getByKelasAndMapel(string $id_kelas, string $id_mapel)
     {
         return JadwalPelajaran::where("id_kelas", "=", $id_kelas)->where("id_mapel", "=", $id_mapel)->first();

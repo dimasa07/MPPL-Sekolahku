@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Data Jadwal</title>
+    <title>Kehadiran Siswa</title>
     <!-- General CSS Files -->
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
@@ -23,16 +23,20 @@
 
 <body>
 
-    @include("admin.nav")
+    @include("guru.nav")
 
     <!-- Main Content -->
     <div class="main-content">
         <section class="section">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title" style="color: black;">Jadwal Pelajaran Kelas {{ $nama_kelas }}</h2>
+                    <h2 class="card-title" style="color: black;">Kehadiran Siswa Kelas {{$nama_kelas}} - {{$nama_mapel}}</h2>
                     <hr>
-                    <a href="{{ route('admin.tambah_jadwal', ['id_kelas'=>$id_kelas]) }}" class="btn btn-success">Tambah Jadwal</a>
+                    <form method="post" enctype="multipart/form-data" action="{{ route('guru.kehadiran.tambah_pertemuan') }}">
+                        Pertemuan Ke
+                        <input type="number" name="pertemuan_ke" required>
+                        <input type="hidden" name="tambah" value="tambah">
+
                 </div>
             </div>
             <div class="row">
@@ -42,27 +46,35 @@
                             <table id="example" class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr class="text-center">
-                                        <th scope="col">Mata Pelajaran</th>
-                                        <th scope="col">Guru Pengajar</th>
-                                        <th scope="col">Waktu</th>
-                                        <th scope="col">Opsi</th>
+                                        <th scope="col">NIS</th>
+                                        <th scope="col">Nama Siswa</th>
+                                        <th scope="col">Keterangan</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($jadwals as $jadwal)
+                                    @if(isset($siswas))
+                                    @foreach ($siswas as $siswa)
                                     <tr>
-                                        <td>{{ $jadwal->nama_mapel }}</td>
-                                        <td>{{ $jadwal->guru->nama }}</td>
-                                        <td>{{ $jadwal->waktu }}</td>
+                                        <td>{{ $siswa->nis }}</td>
+                                        <td>{{ $siswa->nama }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.edit_jadwal', ['id_jadwal'=>$jadwal->id_jadwal, 'id_kelas'=>$id_kelas]) }}" class="btn btn-info">Update</a>
-                                            <a href="{{ route('admin.hapus_jadwal', ['id_jadwal'=>$jadwal->id_jadwal,'id_kelas'=>$id_kelas]) }}" class="btn btn-danger remove" onclick="javascript: return confirm('Yakin hapus? Nama Mapel: {{ $jadwal->nama_mapel }} ');">Hapus</a>
+                                            <select required id="inputState" name="keterangan-{{$siswa->nis}}" class="form-control">
+                                                <option value="{{$siswa->nis}}-Hadir">Hadir</option>
+                                                <option value="{{$siswa->nis}}-Izin">Izin</option>
+                                                <option value="{{$siswa->nis}}-Alpha">Alpha</option>
+                                            </select>
                                         </td>
                                     </tr>
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
+                            <button type="submit" class="btn btn-block btn-success">
+                                @if(isset($kehadiran))
+                                Edit @else Simpan
+                                @endif</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -82,4 +94,4 @@
     @endif
     <!-- End Main Content -->
 
-    @include("admin.footer")
+    @include("guru.footer")

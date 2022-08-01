@@ -16,7 +16,7 @@ class GuruMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->session()->exists("guru")) {
+        if ($request->session()->exists("nip")) {
             return $next($request);
         }
 

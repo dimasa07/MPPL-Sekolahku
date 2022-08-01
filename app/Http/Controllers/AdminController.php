@@ -218,11 +218,15 @@ class AdminController extends Controller
     {
         $id_kelas = $request->input("id_kelas");
         $id_mapel = $request->input("id_mapel");
+        
         if (!is_null($id_kelas) && !is_null($id_mapel)) {
             if (is_null($this->jadwalPelajaranService->getByKelasAndMapel($id_kelas, $id_mapel))) {
+                $guru = $this->guruService->getByNip($request->input("nip"));
                 $jadwal = new JadwalPelajaran();
                 $jadwal->id_kelas = $id_kelas;
                 $jadwal->id_mapel = $id_mapel;
+                $jadwal->nip = $request->input("nip");
+                $jadwal->guru = $guru;
                 $jadwal->waktu = $request->input("hari") . "(" . $request->string("waktu") . ")";
                 $hasil = $this->jadwalPelajaranService->tambah($jadwal);
                 if ($hasil != null) {
@@ -246,7 +250,12 @@ class AdminController extends Controller
         }
 
         $mapels = $this->mapelService->getAll();
-        return view("/admin.tambah_jadwal", ["mapels" => $mapels, "id_kelas" => $id_kelas]);
+        $gurus = $this->guruService->getAll();
+        return view("/admin.tambah_jadwal", [
+            "mapels" => $mapels,
+            "gurus" => $gurus,
+            "id_kelas" => $id_kelas
+        ]);
     }
 
     public function hapusSiswa(Request $request)
@@ -401,6 +410,7 @@ class AdminController extends Controller
         foreach ($jadwals as $jadwal) {
             $jadwal->nama_kelas = $this->kelasService->getById($id_kelas)->nama;
             $jadwal->nama_mapel = $this->mapelService->getById($jadwal->id_mapel)->nama;
+            $jadwal->guru = $this->guruService->getByNip($jadwal->nip);
             $jadwal->waktu = $jadwal->waktu;
         }
 
@@ -520,7 +530,12 @@ class AdminController extends Controller
         }
         $semuaGuru = $this->guruService->getAll();
         $mapel = $this->mapelService->getById($jadwal->id_mapel);
-        return view("admin.tambah_jadwal", ["id_kelas" => $request->input("id_kelas"), "jadwal" => $jadwal, "nama_mapel" => $mapel->nama]);
+        return view("admin.tambah_jadwal", [
+            "gurus"=>$semuaGuru,
+            "id_kelas" => $request->input("id_kelas"),
+            "jadwal" => $jadwal,
+            "nama_mapel" => $mapel->nama
+        ]);
     }
 
     public function test(Request $request)

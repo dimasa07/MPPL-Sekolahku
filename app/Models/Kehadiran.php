@@ -14,21 +14,10 @@ class Kehadiran extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        "tanggal"
+        "id_jadwal",
+        "pertemuan_ke",
+        "keterangan",
+        "nis"
     ];
 
-    public function mapel()
-    {
-        return $this->belongsTo(Mapel::class, "id_mapel");
-    }
-
-    public function siswa()
-    {
-        return $this->belongsToMany(
-            Siswa::class,
-            "detail_kehadiran",
-            "id_kehadiran",
-            "nis"
-        );
-    }
 }
